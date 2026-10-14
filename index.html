@@ -2,387 +2,525 @@
 <html lang="ja">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
-<title>朝の相場ブリーフィング 2026/10/14</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+<title>朝刊マーケットブリーフィング 2026/10/15</title>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.4/chart.umd.min.js"></script>
 <style>
   :root{
-    --bg:#f4f5f7; --card:#ffffff; --text:#1b1f27; --sub:#5b6472;
-    --line:#e3e6ea; --accent:#2b5fd9; --accent-weak:#eaf0ff;
-    --up:#d23b3b; --down:#1a7f4e; --flat:#8a8f98;
-    --badge-bull:#1a7f4e; --badge-bull-weak:#2b9e63; --badge-neutral:#8a6d1f; --badge-bear:#c23b3b;
-    --star:#e0a622; --na:#8a8f98;
+    --bg:#f4f6f9;
+    --card:#ffffff;
+    --text:#1a2233;
+    --sub:#5b6577;
+    --border:#e2e6ee;
+    --accent:#2457c5;
+    --up:#d23b3b;
+    --down:#1a7d4a;
+    --flat:#8a8f98;
+    --badge-bg:#2457c5;
+    --badge-text:#ffffff;
+    --chip-bg:#eef2fb;
+    --warn-bg:#fff4e5;
+    --warn-text:#8a5400;
+    --shadow: 0 1px 3px rgba(20,30,60,0.08);
   }
   @media (prefers-color-scheme: dark){
     :root:not([data-theme="light"]){
-      --bg:#14161b; --card:#1e2128; --text:#eef0f3; --sub:#a3abb8;
-      --line:#2c3038; --accent:#6f96ff; --accent-weak:#232a40;
-      --up:#ff6b6b; --down:#3ddc97; --flat:#9aa1ad;
+      --bg:#11151c;
+      --card:#1a1f2a;
+      --text:#eef1f6;
+      --sub:#9aa3b2;
+      --border:#2b3140;
+      --accent:#6f9bff;
+      --up:#ff6b6b;
+      --down:#4fd38a;
+      --flat:#8a8f98;
+      --badge-bg:#3a63d8;
+      --badge-text:#ffffff;
+      --chip-bg:#202738;
+      --warn-bg:#2e2410;
+      --warn-text:#f0c060;
+      --shadow: 0 1px 3px rgba(0,0,0,0.4);
     }
   }
   :root[data-theme="dark"]{
-    --bg:#14161b; --card:#1e2128; --text:#eef0f3; --sub:#a3abb8;
-    --line:#2c3038; --accent:#6f96ff; --accent-weak:#232a40;
-    --up:#ff6b6b; --down:#3ddc97; --flat:#9aa1ad;
+    --bg:#11151c;
+    --card:#1a1f2a;
+    --text:#eef1f6;
+    --sub:#9aa3b2;
+    --border:#2b3140;
+    --accent:#6f9bff;
+    --up:#ff6b6b;
+    --down:#4fd38a;
+    --flat:#8a8f98;
+    --badge-bg:#3a63d8;
+    --badge-text:#ffffff;
+    --chip-bg:#202738;
+    --warn-bg:#2e2410;
+    --warn-text:#f0c060;
+    --shadow: 0 1px 3px rgba(0,0,0,0.4);
   }
   *{box-sizing:border-box;}
+  html,body{margin:0;padding:0;}
   body{
-    margin:0; background:var(--bg); color:var(--text);
-    font-family:-apple-system,BlinkMacSystemFont,"Hiragino Sans","Hiragino Kaku Gothic ProN",Meiryo,sans-serif;
-    font-size:17px; line-height:1.55; padding-bottom:40px;
+    background:var(--bg);
+    color:var(--text);
+    font-family:-apple-system,BlinkMacSystemFont,"Hiragino Sans","Hiragino Kaku Gothic ProN","Noto Sans JP",system-ui,sans-serif;
+    font-size:17px;
+    line-height:1.55;
+    padding-bottom:40px;
   }
-  .wrap{max-width:720px; margin:0 auto; padding:0 16px;}
-  header{
-    background:linear-gradient(135deg,var(--accent),#1c3f99); color:#fff;
-    padding:20px 16px 24px; margin-bottom:16px;
+  .wrap{max-width:720px;margin:0 auto;padding:0 16px;}
+  header.hero{
+    background:linear-gradient(135deg,var(--accent),#1a3a8f);
+    color:#fff;
+    padding:22px 16px 20px;
+    margin-bottom:18px;
   }
-  header .inner{max-width:720px; margin:0 auto;}
-  header h1{font-size:1.3rem; margin:0 0 4px; font-weight:700;}
-  header .dt{font-size:0.95rem; opacity:0.9; margin:0 0 12px;}
-  .badge{
-    display:inline-flex; align-items:center; gap:6px;
-    background:rgba(255,255,255,0.18); border:1px solid rgba(255,255,255,0.4);
-    border-radius:999px; padding:8px 16px; font-weight:700; font-size:1.05rem;
+  header.hero .inner{max-width:720px;margin:0 auto;}
+  header.hero h1{font-size:1.3rem;margin:0 0 4px;font-weight:700;}
+  header.hero .meta{font-size:0.92rem;opacity:0.92;margin-bottom:12px;}
+  .sentiment-badge{
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+    background:rgba(255,255,255,0.18);
+    border:1px solid rgba(255,255,255,0.4);
+    border-radius:999px;
+    padding:8px 16px;
+    font-size:1.05rem;
+    font-weight:700;
   }
-  .badge .dot{width:10px; height:10px; border-radius:50%; background:#fff;}
+  .sentiment-dot{width:10px;height:10px;border-radius:50%;background:#ffd34d;display:inline-block;}
   section{margin-bottom:22px;}
   h2{
-    font-size:1.05rem; margin:0 0 10px; padding-bottom:6px;
-    border-bottom:2px solid var(--accent); color:var(--text);
-    display:flex; align-items:center; gap:6px;
+    font-size:1.08rem;
+    margin:0 0 10px;
+    padding-bottom:6px;
+    border-bottom:3px solid var(--accent);
+    display:inline-block;
   }
-  .card{background:var(--card); border:1px solid var(--line); border-radius:14px; padding:14px 16px; box-shadow:0 1px 3px rgba(0,0,0,0.04);}
-  .outlook-points{margin:0 0 10px; padding-left:1.2em;}
-  .outlook-points li{margin-bottom:6px; font-weight:600;}
-  .outlook-sub{color:var(--sub); font-size:0.95rem; margin:0 0 6px;}
-  .outlook-sub b{color:var(--text);}
-  .grid-tiles{display:grid; grid-template-columns:repeat(2,1fr); gap:10px;}
-  .tile{background:var(--card); border:1px solid var(--line); border-radius:14px; padding:12px; }
-  .tile .label{font-size:0.82rem; color:var(--sub); margin-bottom:4px;}
-  .tile .val{font-size:1.25rem; font-weight:700; letter-spacing:-0.02em;}
-  .tile .val.na{font-size:1.0rem; color:var(--na); font-weight:700;}
-  .tile .chg{font-size:0.95rem; font-weight:700; display:flex; align-items:center; gap:3px; margin-top:2px;}
-  .tile .ref{font-size:0.78rem; color:var(--sub); margin-top:3px; font-weight:400;}
-  .up{color:var(--up);} .down{color:var(--down);} .flat{color:var(--flat);} .na{color:var(--na);}
-  table{width:100%; border-collapse:collapse; font-size:0.92rem;}
-  th,td{text-align:left; padding:8px 6px; border-bottom:1px solid var(--line); vertical-align:top;}
-  th{color:var(--sub); font-weight:600; font-size:0.82rem;}
+  .card{
+    background:var(--card);
+    border:1px solid var(--border);
+    border-radius:14px;
+    padding:16px;
+    box-shadow:var(--shadow);
+  }
+  .outlook-lines{list-style:none;margin:0 0 12px;padding:0;}
+  .outlook-lines li{
+    font-size:1.02rem;
+    font-weight:600;
+    padding:8px 0 8px 14px;
+    border-left:4px solid var(--accent);
+    margin-bottom:6px;
+    background:var(--chip-bg);
+    border-radius:0 8px 8px 0;
+  }
+  .reasons{margin:10px 0 0;padding-left:20px;color:var(--sub);font-size:0.94rem;}
+  .reasons li{margin-bottom:6px;}
+  .range-box{
+    margin-top:12px;
+    padding:12px;
+    background:var(--chip-bg);
+    border-radius:10px;
+    font-size:0.95rem;
+  }
+  .range-box b{color:var(--accent);}
+  .tiles{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:10px;
+  }
+  .tile{
+    background:var(--card);
+    border:1px solid var(--border);
+    border-radius:12px;
+    padding:12px 14px;
+    box-shadow:var(--shadow);
+  }
+  .tile .label{font-size:0.82rem;color:var(--sub);margin-bottom:4px;}
+  .tile .value{font-size:1.28rem;font-weight:700;letter-spacing:-0.3px;}
+  .tile .chg{font-size:0.92rem;font-weight:700;margin-top:2px;}
+  .chg.up{color:var(--up);}
+  .chg.down{color:var(--down);}
+  .chg.flat{color:var(--flat);}
+  .tile .note{font-size:0.74rem;color:var(--sub);margin-top:4px;}
+  table{
+    width:100%;
+    border-collapse:collapse;
+    font-size:0.88rem;
+  }
+  .table-scroll{overflow-x:auto;-webkit-overflow-scrolling:touch;}
+  th,td{
+    text-align:left;
+    padding:8px 8px;
+    border-bottom:1px solid var(--border);
+    vertical-align:top;
+    white-space:normal;
+  }
+  th{color:var(--sub);font-weight:600;font-size:0.78rem;white-space:nowrap;}
   tr:last-child td{border-bottom:none;}
-  .news-item{padding:10px 0; border-bottom:1px solid var(--line);}
+  .star{color:#e6a700;}
+  .news-item{padding:12px 0;border-bottom:1px solid var(--border);}
   .news-item:last-child{border-bottom:none;}
-  .news-item .src{font-size:0.82rem; color:var(--sub);}
-  .news-item a{color:var(--accent); text-decoration:none;}
-  .stars{color:var(--star); letter-spacing:1px; white-space:nowrap;}
-  .tag{display:inline-block; font-size:0.72rem; padding:2px 7px; border-radius:6px; background:var(--accent-weak); color:var(--accent); font-weight:700; margin-left:4px;}
-  .tmf-card{background:linear-gradient(135deg,var(--accent-weak),var(--card)); border:1px solid var(--line); border-radius:16px; padding:16px;}
-  .tmf-top{display:flex; justify-content:space-between; align-items:baseline; margin-bottom:10px; flex-wrap:wrap; gap:6px;}
-  .tmf-top .price{font-size:1.5rem; font-weight:800;}
-  .warn-box{background:#fff4e5; border:1px solid #f0c36d; border-radius:10px; padding:10px 12px; font-size:0.88rem; color:#7a5200; margin-top:10px;}
-  @media (prefers-color-scheme: dark){ :root:not([data-theme="light"]) .warn-box{background:#332a14; border-color:#6b5420; color:#f0cf7a;} }
-  :root[data-theme="dark"] .warn-box{background:#332a14; border-color:#6b5420; color:#f0cf7a;}
-  .info-box{background:var(--accent-weak); border:1px solid var(--line); border-radius:10px; padding:10px 12px; font-size:0.85rem; color:var(--sub); margin-bottom:10px;}
-  .holiday-box{background:#eaf0ff; border:1px solid #b9cdf7; border-radius:10px; padding:10px 12px; font-size:0.88rem; color:#1c3f99; margin-bottom:10px; font-weight:700;}
-  @media (prefers-color-scheme: dark){ :root:not([data-theme="light"]) .holiday-box{background:#1b2440; border-color:#3a4f8f; color:#9db4f7;} }
-  :root[data-theme="dark"] .holiday-box{background:#1b2440; border-color:#3a4f8f; color:#9db4f7;}
-  footer{color:var(--sub); font-size:0.82rem; padding:16px; border-top:1px solid var(--line); margin-top:10px;}
-  footer p{margin:0 0 8px;}
-  footer .srcs{font-size:0.78rem; word-break:break-all;}
-  .chart-box{max-width:100%; height:220px; margin-top:8px;}
-  .risk-list{margin:0; padding-left:1.2em; font-size:0.95rem;}
-  .risk-list li{margin-bottom:6px;}
-  .updated-note{font-size:0.8rem; color:var(--sub); margin-top:4px;}
+  .news-item .src{font-size:0.8rem;}
+  .news-item .src a{color:var(--accent);text-decoration:none;}
+  .pill{
+    display:inline-block;
+    font-size:0.72rem;
+    font-weight:700;
+    padding:2px 8px;
+    border-radius:999px;
+    background:var(--chip-bg);
+    color:var(--accent);
+    margin-right:6px;
+  }
+  .jobs-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:8px;}
+  .jobs-grid .mini{background:var(--chip-bg);border-radius:10px;padding:10px;text-align:center;}
+  .jobs-grid .mini .num{font-size:1.2rem;font-weight:700;}
+  .jobs-grid .mini .lbl{font-size:0.74rem;color:var(--sub);}
+  .chart-wrap{position:relative;height:220px;margin-top:10px;}
+  .tmf-card{
+    border:2px solid var(--accent);
+    border-radius:14px;
+    padding:16px;
+    background:var(--card);
+    box-shadow:var(--shadow);
+  }
+  .tmf-head{display:flex;justify-content:space-between;align-items:baseline;flex-wrap:wrap;gap:8px;margin-bottom:10px;}
+  .tmf-price{font-size:1.9rem;font-weight:800;}
+  .tmf-chg{font-size:1.05rem;font-weight:700;}
+  .risk-note{
+    margin-top:12px;
+    background:var(--warn-bg);
+    color:var(--warn-text);
+    border-radius:10px;
+    padding:10px 12px;
+    font-size:0.86rem;
+    font-weight:600;
+  }
+  .unavail{color:var(--sub);font-style:normal;font-size:0.85em;}
+  .disclaimer{
+    background:var(--chip-bg);
+    border-radius:12px;
+    padding:14px 16px;
+    font-size:0.85rem;
+    color:var(--sub);
+    line-height:1.7;
+  }
+  .sources-list{font-size:0.78rem;color:var(--sub);margin-top:10px;padding-left:18px;}
+  .sources-list li{margin-bottom:3px;}
+  .sources-list a{color:var(--accent);text-decoration:none;}
+  footer{text-align:center;font-size:0.76rem;color:var(--sub);margin-top:24px;}
+  @media (max-width:420px){
+    body{font-size:16px;}
+    .tiles{grid-template-columns:repeat(2,1fr);}
+    .tile .value{font-size:1.15rem;}
+  }
 </style>
 </head>
 <body>
-<header>
+
+<header class="hero">
   <div class="inner">
-    <h1>朝の相場ブリーフィング</h1>
-    <p class="dt">2026年10月14日（水）　作成 07:10 JST</p>
-    <span class="badge"><span class="dot"></span>地合い判定：やや弱気</span>
+    <h1>朝刊マーケットブリーフィング</h1>
+    <div class="meta">2026年10月15日(木) ／ 作成時刻 07:10 JST</div>
+    <div class="sentiment-badge"><span class="sentiment-dot"></span>本日の地合い：やや弱気</div>
   </div>
 </header>
 
 <div class="wrap">
 
+  <!-- 2. 本日の見通し -->
   <section>
-    <h2>📌 本日の見通し</h2>
+    <h2>本日の見通し</h2>
     <div class="card">
-      <ul class="outlook-points">
-        <li>米国株は10/13、銀行決算が出そろう中ダウが180ドル安（-0.35%）、S&amp;P500・ナスダックもほぼ変わらずで続落。半導体株（SOX）は4〜5営業日続落と軟調さが続いている。</li>
-        <li>日本株は10/13、日経平均が前週末比1,253円40銭（-1.82%）安の67,777円52銭と4営業日続落。半導体・金利敏感株中心に売りが広がった。</li>
-        <li>米10年債利回りは5.2%台、30年債は5.5%台と高水準で推移。本日21:30に米9月CPIの発表を控え、金利・インフレへの警戒感が強い。日経225先物（大阪ナイトセッション）は14日早朝時点で68,100円前後と前日清算値から小幅戻す展開。</li>
+      <ul class="outlook-lines">
+        <li>米9月CPIが予想上振れでFOMC利上げ観測が再燃、米株(特に半導体)が大幅安</li>
+        <li>東京市場も前日(14日)は半導体株安で後場失速、5日続落と地合いは弱い</li>
+        <li>夜間日経先物は前日比+140円と底堅いが、米半導体安の波及に要警戒</li>
       </ul>
-      <p class="outlook-sub"><b>判断根拠：</b></p>
-      <ul class="outlook-points" style="font-weight:400;">
-        <li>半導体株（SOX）は10/12終値が前日比-2.67%の12,236.79と大幅安となったのち、10/13も続落と報じられた（確定終値は取得不可）。中国メモリーメーカーCXMTの競争力向上懸念を背景に、マイクロン・サンディスクなど米メモリー関連株への売りが続いている。</li>
-        <li>日経平均は10/13に4営業日続落（-1.82%）となり、TOPIXも午前終値ベースで軟調。半導体・金利敏感セクターへの売りが日米共通のテーマとなっている。</li>
-        <li>米10年債利回りは10/13のNY市場で5.213%前後（2年債4.791%、30年債5.563%）と高水準を維持。本日21:30発表の米9月CPI（市場予想：総合前年比+3.6%、コア前年比+2.5%）の結果次第で一段の金利上昇リスクがある。</li>
-        <li>日本の新発10年国債利回りは10/13時点で3.005%まで上昇。日銀の次回会合（10/29〜30、展望レポート）を控え、12月または1月の追加利上げ思惑が意識されている。</li>
-        <li>WTI原油は中東情勢の緊迫化（フーシ派によるサウジアラビア攻撃との報道）を背景に10/13終値が前日比+2.06%の93.74ドルと3営業日続伸し、インフレ再燃への警戒材料となっている。</li>
-      </ul>
-      <p class="outlook-sub"><b>想定レンジの目安：</b>大阪取引所の日経225先物（12月限）は、14日早朝6時時点のナイト・セッションで68,100円前後と、13日の日中清算値（67,960円）からやや戻す動きで推移しています。これを基準にすると、本日の東京市場は67,900〜68,300円程度でのスタートが見込まれますが、21:30の米9月CPI結果を受けた前日終盤以降の値動きが反映されていない可能性もあり、断定的なレンジは示せません。寄り付き前の最新の先物気配を必ずご確認ください。</p>
-      <p class="outlook-sub"><b>注目セクター・テーマ：</b>半導体（続落警戒・メモリー競争激化）、銀行・金融（決算シーズン本格化）、資源・エネルギー（中東情勢による原油高）、インフレ・金利敏感株、レバレッジ型債券ETF。</p>
-      <p class="outlook-sub" style="margin-bottom:0;"><b>本日のリスク要因：</b></p>
-      <ul class="risk-list">
-        <li>本日21:30発表の米9月CPIが市場予想（総合前年比+3.6%）を上回れば、長期金利・ドルがさらに上昇し株式の重荷になるリスク</li>
-        <li>半導体株の続落（中国メーカーとの競争激化懸念）が日米ハイテク株全般に波及するリスク</li>
-        <li>米銀決算（JPモルガンは市場予想割れ、ウェルズ・ファーゴは決算後に軟調）を受けたセクター全体の業績不透明感</li>
-        <li>米10年債5.2%台・日本10年債3.0%近辺という高水準の長期金利が、高PER株・不動産・レバレッジ型ETFを圧迫するリスク</li>
-        <li>中東情勢の緊迫化による原油高・インフレ再燃リスク</li>
-        <li>10/27-28FOMC、10/29-30日銀会合を控えた思惑的なポジション調整</li>
-      </ul>
+      <ol class="reasons">
+        <li>米9月CPIが総合+3.7%・コア+2.6%でいずれも市場予想を上回り、10/28-29のFOMCでの追加利上げ観測が強まった（利上げ確率は市場推計で約22%→約52%に上昇）</li>
+        <li>この結果を受け米株式市場は続落。S&amp;P500-1.11%、ナスダック総合-1.88%、半導体株(SOX系)は7営業日続落とハイテク・AI関連が主導して下落</li>
+        <li>東京市場(10/14)は前場+400円超の場面もあったが、オランダASMLの7-9月期決算発表を機に後場に半導体関連株が売られ、日経平均は小幅安(-33円、5日続落)で終了</li>
+        <li>夜間取引の日経225先物(大阪)は6万8,100円(前日比+140円)で終了し、現物終値比ではやや高めの水準を維持しており、寄り付きから急落する展開は現時点では見込みにくい</li>
+        <li>一方で米長期金利の上昇・ドル高（米ドル指数は103近辺へ上昇）が続いており、グローバルにリスク資産の重荷となりやすい地合いが継続</li>
+      </ol>
+      <div class="range-box">
+        <b>想定レンジの目安（寄り付き）：</b> 夜間日経225先物終値 68,100円（前日比+140円）を基準に、本日の東京市場の始値は<strong>68,000円前後</strong>を想定。日中は米半導体株安の流れが波及しやすく、終日では<strong>67,400円～68,300円</strong>程度のレンジを想定（断定不可・市場急変の可能性あり）。
+      </div>
     </div>
   </section>
 
+  <!-- 3. 主要指標タイル -->
   <section>
-    <h2>📊 主要指標タイル</h2>
-    <div class="grid-tiles">
+    <h2>主要指標</h2>
+    <div class="tiles">
       <div class="tile">
-        <div class="label">日経225先物（夜間）</div><div class="val up">68,100円前後</div>
-        <div class="chg up">▲ 前日清算値比 +140円前後</div>
-        <div class="ref">14日6時時点（大阪ナイトセッション、12月限）。前日(13日)日中清算値67,960円</div>
+        <div class="label">日経225先物（夜間引け）</div>
+        <div class="value">68,100円</div>
+        <div class="chg up">▲140円（+0.21%）</div>
+        <div class="note">大阪夜間取引 10/14→15 6:00引け</div>
       </div>
       <div class="tile">
-        <div class="label">日経平均（現物終値）</div><div class="val down">67,777.52円</div>
-        <div class="chg down">▼ -1,253.40（-1.82%）</div>
-        <div class="ref">10/13終値・4日続落</div>
+        <div class="label">S&amp;P500（米)</div>
+        <div class="value">7,718.94</div>
+        <div class="chg down">▼約86pt（-1.11%）</div>
+        <div class="note">10/14終値</div>
       </div>
       <div class="tile">
-        <div class="label">TOPIX</div><div class="val na">確定終値 取得不可</div>
-        <div class="ref">参考：10/13午前終値4,085.91（-18.90）</div>
+        <div class="label">NYダウ（米）</div>
+        <div class="value">51,621.48</div>
+        <div class="chg down">▼48.62pt（-0.09%）</div>
+        <div class="note">10/14終値</div>
       </div>
       <div class="tile">
-        <div class="label">S&amp;P500</div><div class="val down">7,805.45</div>
-        <div class="chg down">▼ 約-0.02%</div>
-        <div class="ref">10/13終値</div>
+        <div class="label">ナスダック総合（米）</div>
+        <div class="value">26,692.87</div>
+        <div class="chg down">▼約511pt（-1.88%）</div>
+        <div class="note">10/14終値・半導体安が主導</div>
       </div>
       <div class="tile">
-        <div class="label">NYダウ</div><div class="val down">51,670.10</div>
-        <div class="chg down">▼ -180.45（-0.35%）</div>
-        <div class="ref">10/13終値</div>
+        <div class="label">ドル円</div>
+        <div class="value">取得不可</div>
+        <div class="chg flat">－</div>
+        <div class="note">CPI後にドル高進行（ドル指数103近辺）との報道あり、終値未確認</div>
       </div>
       <div class="tile">
-        <div class="label">ナスダック総合</div><div class="val down">27,204.38</div>
-        <div class="chg down">▼ 約-0.15%</div>
-        <div class="ref">10/13終値</div>
+        <div class="label">米10年債利回り</div>
+        <div class="value">5.28%</div>
+        <div class="chg up">▲約6bp</div>
+        <div class="note">10/14・報道により5.22～5.28%の幅あり</div>
       </div>
       <div class="tile">
-        <div class="label">SOX（半導体指数）</div><div class="val na">確定終値 取得不可</div>
-        <div class="ref">参考：10/12終値12,236.79（-2.67%）。13日も続落と報道</div>
+        <div class="label">日本10年債利回り</div>
+        <div class="value">取得不可</div>
+        <div class="chg flat">－</div>
+        <div class="note">参考：8/28時点2.925%（上昇基調）</div>
       </div>
       <div class="tile">
-        <div class="label">VIX指数</div><div class="val up">15.49</div>
-        <div class="chg up">▲ 約+1.8%</div>
-        <div class="ref">10/13終値（単一ソース情報）</div>
+        <div class="label">WTI原油</div>
+        <div class="value">$95.49</div>
+        <div class="chg up">▲1.43%</div>
+        <div class="note">10/14終値・中東情勢で上昇</div>
       </div>
       <div class="tile">
-        <div class="label">ドル円</div><div class="val down">158円30銭台</div>
-        <div class="chg down">▼ -0.09円</div>
-        <div class="ref">14日6時JST時点</div>
+        <div class="label">金（ゴールド）</div>
+        <div class="value">取得不可</div>
+        <div class="chg flat">－</div>
+        <div class="note">日中(米9:11ET)時点$4,126.50（-1.24%）、終値未確認</div>
       </div>
-      <div class="tile">
-        <div class="label">ユーロ円</div><div class="val flat">177円27銭台</div>
-        <div class="ref">14日3時JST時点</div>
-      </div>
-      <div class="tile">
-        <div class="label">米10年債利回り</div><div class="val up">5.213%</div>
-        <div class="chg down">▼ -0.025pt</div>
-        <div class="ref">10/13 NY引け前後</div>
-      </div>
-      <div class="tile">
-        <div class="label">日本10年債(JGB)</div><div class="val up">3.005%</div>
-        <div class="ref">10/13 15:11時点・日銀利上げ観測で高止まり</div>
-      </div>
-      <div class="tile">
-        <div class="label">WTI原油</div><div class="val up">93.74ドル</div>
-        <div class="chg up">▲ +2.06%</div>
-        <div class="ref">10/13 NY終値（11月限）・3営業日続伸</div>
-      </div>
-      <div class="tile">
-        <div class="label">金（ゴールド）</div><div class="val down">約-0.61%</div>
-        <div class="ref">10/13 NY終値（前日比）。絶対水準は報道により差異あり（4,200ドル近辺との報道）</div>
-      </div>
-      <div class="tile"><div class="label">東証プライム売買代金</div><div class="val na">取得不可</div></div>
     </div>
-    <p class="updated-note">※TOPIX確定終値・SOX（10/13分）確定終値・東証プライム売買代金・金（ゴールド）の正確な絶対水準は、本稿作成時点で信頼できる一次情報源の確定値を確認できなかったため「取得不可」または参考値として明記しています。業務で用いる際は各種端末・一次ソースで必ず再確認してください。</p>
+    <div class="chart-wrap">
+      <canvas id="chgChart"></canvas>
+    </div>
   </section>
 
+  <!-- 4. 金利セクション -->
   <section>
-    <h2>💹 金利セクション（日米長期金利）</h2>
-    <div class="card">
+    <h2>日米長期金利</h2>
+    <div class="card table-scroll">
       <table>
-        <tr><th>国・年限</th><th>利回り</th><th>備考</th></tr>
-        <tr><td>米2年債</td><td>4.791%</td><td>10/13 NY引け前後（+0.004pt）</td></tr>
-        <tr><td>米10年債</td><td>5.213%</td><td>10/13 NY引け前後（-0.025pt）。本日21:30の米9月CPI結果待ちで様子見ムード</td></tr>
-        <tr><td>米30年債</td><td>5.563%</td><td>10/13 NY引け前後（-0.033pt）。財政悪化懸念・インフレ高止まりを背景に高水準</td></tr>
-        <tr><td>日本10年債(JGB)</td><td>3.005%</td><td>10/13 15:11時点。日銀の追加利上げ観測を背景に高止まり</td></tr>
-        <tr><td>日本20年債(JGB)</td><td class="na">取得不可</td><td>本稿作成時点で信頼できる最新値を確認できず</td></tr>
+        <thead><tr><th>指標</th><th>水準</th><th>前日比</th><th>備考</th></tr></thead>
+        <tbody>
+          <tr><td>米10年債</td><td>5.28%</td><td class="up">▲約6bp</td><td>CPI上振れで利上げ観測再燃</td></tr>
+          <tr><td>米2年債</td><td>4.82%</td><td class="up">▲約3bp</td><td>短期金利もCPI受けて上昇</td></tr>
+          <tr><td>米30年債</td><td class="unavail">取得不可</td><td>－</td><td>参考：10/8時点5.60%、財政懸念で高止まり継続</td></tr>
+          <tr><td>日本10年債(JGB)</td><td class="unavail">取得不可</td><td>－</td><td>参考：8/28時点2.925%、積極財政への懸念で上昇基調</td></tr>
+          <tr><td>日本20年債(JGB)</td><td class="unavail">取得不可</td><td>－</td><td>超長期ゾーンは財政悪化懸念で金利上昇圧力継続との報道</td></tr>
+          <tr><td>日銀政策金利</td><td>1.25%程度</td><td>－</td><td>9/17-18会合で利上げ。次回会合は10/29-30</td></tr>
+        </tbody>
       </table>
-      <p class="outlook-sub" style="margin-top:8px;">日本銀行の次回会合は10/29〜30（四半期ごとの展望レポート会合）、次々回は12/17〜18。植田総裁は追加利上げのタイミング・ペースは物価の波及経路次第と述べており、12月または1月の利上げ可能性が意識されている。米国側は10/27-28のFOMCを控え、本日の米CPI結果が金融政策・長期金利の先行きを左右する材料として注目されている。</p>
     </div>
   </section>
 
+  <!-- 5. 重要ニュース要約 -->
   <section>
-    <h2>📰 重要ニュース要約</h2>
+    <h2>重要ニュース要約</h2>
     <div class="card">
       <div class="news-item">
-        <div>米国株式市場（10/13）は銀行決算が相場の中心に。JPモルガン・チェースは市場予想を下回る内容と報じられ、ウェルズ・ファーゴも決算後に軟調な展開となった。ダウ平均は前日比180.45ドル安（-0.35%）の51,670.10、S&amp;P500は7,805.45（約-0.02%）、ナスダック総合は27,204.38（約-0.15%）とそろって続落。</div>
-        <div class="src">出典：<a href="https://www.cnbc.com/2026/10/12/stock-market-today-live-updates.html" target="_blank" rel="noopener">CNBC "Stock market today"</a>（2026/10/12・10/13配信）</div>
+        米9月CPIは総合+3.7%・コア+2.6%で市場予想を上回り、ガソリン高が主因。FOMC(10/28-29)での追加利上げ観測が一気に強まった。
+        <div class="src"><a href="https://jp.investing.com/news/economic-indicators/article-1711629" target="_blank" rel="noopener">Investing.com</a> / <a href="https://s.kabutan.jp/news/n202610141141/" target="_blank" rel="noopener">株探</a></div>
       </div>
       <div class="news-item">
-        <div>半導体株（SOX指数）が4〜5営業日続落。10/12終値は前日比-2.67%の12,236.79まで下落し、13日も続落したと報じられた（確定終値は取得不可）。中国メモリーメーカーCXMTの競争力向上観測を背景に、マイクロン・サンディスクなど米メモリー関連株に売りが続いている。</div>
-        <div class="src">出典：TheStreet／ad-hoc-news.de（2026/10/13配信）</div>
+        米株式市場は3指数そろって続落。半導体株は7営業日続落となり、AI関連インフラ企業の一角も急落した。
+        <div class="src"><a href="https://www.cnbc.com/2026/10/13/stock-market-today-live-updates-.html" target="_blank" rel="noopener">CNBC</a> / <a href="https://www.benzinga.com/markets/equities/26/10/62360140/nasdaq-100-drops-1-on-hot-cpi-soxx-falls-7th-day-stock-market-today" target="_blank" rel="noopener">Benzinga</a></div>
       </div>
       <div class="news-item">
-        <div>東京株式市場（10/13）は日経平均が前週末比1,253円40銭（-1.82%）安の67,777円52銭と4営業日続落。半導体・金利敏感株中心に売りが広がった。</div>
-        <div class="src">出典：<a href="https://s.kabutan.jp/news/n202610130774" target="_blank" rel="noopener">株探</a>（2026/10/13配信）</div>
+        オランダASMLの7-9月期決算発表を機に、東京市場でも半導体関連株が後場に売られ、日経平均は前場の上昇を消して5日続落。
+        <div class="src"><a href="https://www.zaikei.co.jp/article/20261014/873413.html" target="_blank" rel="noopener">財経新聞</a></div>
       </div>
       <div class="news-item">
-        <div>NY原油市場（10/13）はWTI先物が前日比+2.06%の1バレル93.74ドルと3営業日続伸。中東情勢の緊迫化（フーシ派によるサウジアラビア攻撃との報道）を背景に供給懸念が強まった。</div>
-        <div class="src">出典：みんかぶFX/為替／<a href="https://www.oanda.jp/lab-education/market_news/2026_10_13_wtioil/" target="_blank" rel="noopener">OANDA Japan市場ニュース</a>（2026/10/13配信）</div>
+        大手金融機関の決算が相次ぎ発表。ゴールドマン・サックスは増収増益で予想超、JPモルガンは予想を下回る結果となった。
+        <div class="src"><a href="https://www.sec.gov/Archives/edgar/data/0000886982/000088698226000529/a3q26gsearningsresults.htm" target="_blank" rel="noopener">Goldman Sachs 8-K</a></div>
       </div>
       <div class="news-item">
-        <div>米国債市場（10/13）は10年債利回りが節目の5.2%台（5.213%）で推移。翌14日の米9月CPI発表を控えて様子見ムードが強く、2-10年債のスプレッドは+42bpとスティープ化が一服した。</div>
-        <div class="src">出典：<a href="https://fx.minkabu.jp/news/381437" target="_blank" rel="noopener">みんかぶFX/為替</a>（2026/10/13〜14配信）</div>
+        TSMCの7-9月期売上高は前年比約50%増の記録的水準となり市場予想を上回った。決算カンファレンスコールは10/15(米東部14:00)に実施予定。
+        <div class="src"><a href="https://investor.tsmc.com/quarterly-results" target="_blank" rel="noopener">TSMC IR</a></div>
       </div>
       <div class="news-item">
-        <div>日本の新発10年国債利回りは10/13時点で3.005%まで上昇。日銀の追加利上げ観測が意識されており、植田総裁は利上げの時期・ペースは物価の波及経路次第と述べ、12月または1月の利上げ可能性が指摘されている。</div>
-        <div class="src">出典：日本経済新聞／国際通貨研究所レポート</div>
+        米ドル指数が103近辺へ上昇。CPI上振れを受けた利上げ観測の再燃がドル買いを支えている。
+        <div class="src"><a href="https://www.fxstreet.com/news/us-dollar-index-roars-towards-103-as-hot-cpi-reignite-fed-hike-bets-202610141545" target="_blank" rel="noopener">FXStreet</a></div>
       </div>
       <div class="news-item">
-        <div>米9月分雇用統計（10/2発表）は非農業部門雇用者数が+2.9万人と市場予想（+9.0万人超）を大幅に下回り、失業率は4.2%（前月4.1%）に上昇。平均時給は前月比+0.1%（予想+0.3%）にとどまり、過去2カ月分は合計6.0万人下方修正された。</div>
-        <div class="src">出典：<a href="https://www.bloomberg.com/jp/news/articles/2026-10-02/TMA2HXT9NJLS00" target="_blank" rel="noopener">Bloomberg</a>／OANDA Japan（2026/10/2配信）</div>
+        日銀は「基調的な物価上昇率」が2%程度に到達したと判断する方向で検討に入ったと報じられた。12月会合での追加利上げ観測も残る。
+        <div class="src"><a href="https://www.dlri.co.jp/files/macro/666382.pdf" target="_blank" rel="noopener">第一生命経済研究所</a></div>
       </div>
-      <div class="news-item" style="border-bottom:none;">
-        <div>大阪取引所の日経225先物（12月限）はナイト・セッションで買われ、14日早朝6時時点では68,100円前後と、13日の日中清算値（67,960円）からやや戻す動きで推移している。</div>
-        <div class="src">出典：日本経済新聞マーケットデータ／株探（2026/10/13〜14）</div>
+      <div class="news-item">
+        米30年債利回りは5%台後半で高止まり。財政赤字への懸念から大手運用会社が超長期債離れを進めているとの報道もある。
+        <div class="src"><a href="https://www.businessinsider.jp/article/2609-bond-market-sell-off-high-treasury-yields-interest-rates-fed/" target="_blank" rel="noopener">Business Insider Japan</a></div>
       </div>
     </div>
   </section>
 
+  <!-- 6. 決算サマリ表 -->
   <section>
-    <h2>🏢 決算サマリ</h2>
-    <div class="card" style="overflow-x:auto;">
+    <h2>決算サマリ</h2>
+    <div class="card table-scroll">
       <table>
-        <tr><th>銘柄</th><th>市場</th><th>予想比</th><th>ガイダンス</th><th>株価反応</th></tr>
-        <tr>
-          <td>JPモルガン・チェース（米）</td><td>米</td>
-          <td>2026年Q3（10/13発表）：市場予想を下回る内容と報じられる（具体的な数値は取得不可）</td>
-          <td>取得不可</td>
-          <td>軟調（具体的な変動率は取得不可）</td>
-        </tr>
-        <tr>
-          <td>ウェルズ・ファーゴ（米）</td><td>米</td>
-          <td>2026年Q3（10/13発表）：まちまちな内容と報じられる（具体的な数値は取得不可）</td>
-          <td>取得不可</td>
-          <td>約-3%</td>
-        </tr>
-        <tr>
-          <td>ファーストリテイリング（9983・日）</td><td>日（TOPIX Core30級）</td>
-          <td>2026年8月期本決算（10/8発表、速報値・監査前）：売上収益約4.0兆円、営業利益7,431億円で会社計画（約6,900億円）を上振れ、純利益5,425億円、EPS1,768円</td>
-          <td>年間配当予想を640円→850円に上方修正</td>
-          <td>取得不可（当日の株価反応データ未確認）</td>
-        </tr>
+        <thead><tr><th>銘柄</th><th>市場</th><th>予想比</th><th>ガイダンス／コメント</th><th>株価反応</th></tr></thead>
+        <tbody>
+          <tr><td>ゴールドマン・サックス</td><td>米</td><td>上振れ（EPS$17.01、売上$186.8億）</td><td>自己資本利益率18.7%</td><td>ほぼ無反応（軟調）</td></tr>
+          <tr><td>JPモルガン・チェース</td><td>米</td><td>下振れ（具体的数値は取得不可）</td><td class="unavail">取得不可</td><td>軟調（詳細な変化率は確認不可）</td></tr>
+          <tr><td>ASML（参考・半導体製造装置）</td><td>欧州(ADR)</td><td class="unavail">取得不可</td><td>7-9月期決算発表が東京市場の半導体株安の引き金に</td><td>東京の半導体関連株に波及（軟化）</td></tr>
+          <tr><td>TSMC（参考）</td><td>台湾(ADR)</td><td>上振れ（売上前年比+約50%）</td><td>カンファレンスコールは10/15実施予定</td><td>反応は本日以降反映</td></tr>
+          <tr><td>日本国内決算ラッシュ</td><td>日</td><td class="unavail">取得不可（10/14:99社、10/15:131社が発表集中）</td><td class="unavail">個別銘柄の確定データは取得不可</td><td class="unavail">取得不可</td></tr>
+        </tbody>
       </table>
-      <p class="outlook-sub" style="margin-top:8px;">※米Q3決算シーズンは10/13週から大手金融機関の発表が本格化。トヨタなど日本の中間決算（4-9月期）はTOPIX Core30主力銘柄の多くが10月下旬〜11月上旬に発表予定で、本稿作成時点では未発表の銘柄が大半です（検索でも確認できず「取得不可」）。</p>
     </div>
   </section>
 
+  <!-- 7. 米雇用統計ボックス -->
   <section>
-    <h2>👷 米雇用統計</h2>
+    <h2>米雇用統計</h2>
     <div class="card">
-      <table>
-        <tr><th>項目</th><th>結果（2026年9月分・10/2発表）</th><th>市場予想</th></tr>
-        <tr><td>非農業部門雇用者数</td><td>+29,000人</td><td>+90,000人前後</td></tr>
-        <tr><td>失業率</td><td>4.2%（前月4.1%）</td><td>4.1%で変化なしの予想が多勢</td></tr>
-        <tr><td>平均時給（前月比）</td><td>+0.1%（前年比+3.0%）</td><td>+0.3%</td></tr>
-      </table>
-      <p class="outlook-sub" style="margin-top:8px;">7・8月分も合計6.0万人下方修正され、労働市場の減速が鮮明になった。失業率上昇は労働参加率の上昇による側面もあるとの分析も一部にある。</p>
-      <p class="outlook-sub" style="margin-bottom:0;"><b>次回発表：</b>2026年10月分雇用統計は、米雇用統計が例年月初の金曜日に発表される慣例に基づけば2026年11月6日（金）21:30（日本時間）が目安となりますが、本稿作成時点で公式スケジュールの確定情報源は確認できておらず「要確認」です。市場予想も取得不可。</p>
+      <div style="font-size:0.9rem;color:var(--sub);margin-bottom:4px;">直近結果（2026年9月分・10/2発表）</div>
+      <div class="jobs-grid">
+        <div class="mini"><div class="num">+2.9万人</div><div class="lbl">非農業部門雇用者数（予想+8.8万人前後を大幅に下回る）</div></div>
+        <div class="mini"><div class="num">4.2%</div><div class="lbl">失業率（予想4.1%）</div></div>
+        <div class="mini"><div class="num">+0.1%</div><div class="lbl">平均時給 前月比</div></div>
+        <div class="mini"><div class="num">+3.0%</div><div class="lbl">平均時給 前年比</div></div>
+      </div>
+      <div class="range-box" style="margin-top:12px;">
+        7・8月分は合計約6万人下方修正。次回（10月分）の発表は<strong>2026年11月6日(金) 22:30(日本時間)</strong>予定。
+      </div>
     </div>
   </section>
 
+  <!-- 8. イベントカレンダー -->
   <section>
-    <h2>🗓️ 今後の重要イベントカレンダー（10/14〜10/29）</h2>
-    <div class="card" style="overflow-x:auto;">
+    <h2>今後の重要イベント（10/15～）</h2>
+    <div class="card table-scroll">
       <table>
-        <tr><th>日付</th><th>イベント</th><th>重要度</th><th>時刻(JST)</th><th>市場予想等</th></tr>
-        <tr><td>10/14(水)・本日</td><td>米9月消費者物価指数（CPI）</td><td class="stars">★★★</td><td>21:30</td><td>総合 前年比+3.6%（前回+3.4%）・前月比+0.6%／コア 前年比+2.5%・前月比+0.2%</td></tr>
-        <tr><td>10/15(木)</td><td>米9月生産者物価指数（PPI）・米9月小売売上高</td><td class="stars">★★★</td><td>21:30</td><td>市場予想は取得不可</td></tr>
-        <tr><td>10/15(木)週</td><td>米大手金融機関決算が本格化</td><td class="stars">★★</td><td>各社個別</td><td>-</td></tr>
-        <tr><td>10/下旬(日程未確定)</td><td>日本9月全国消費者物価指数（CPI）</td><td class="stars">★★</td><td>取得不可</td><td>取得不可</td></tr>
-        <tr><td>10/下旬(日程未確定)</td><td>米大手ハイテク企業決算が集中する見込み（マイクロソフト、アルファベット、メタ、アマゾン、アップル等）</td><td class="stars">★★★</td><td>取得不可</td><td>取得不可</td></tr>
-        <tr><td>10/27-28(火-水)</td><td>FOMC（米連邦公開市場委員会）</td><td class="stars">★★★</td><td>結果発表 10/28米東部（日本時間10/29未明3時頃）</td><td>追加利上げの有無を巡り思惑が交錯（確度は取得不可）</td></tr>
-        <tr><td>10/29-30(木-金)</td><td>日銀金融政策決定会合（四半期展望レポート会合）</td><td class="stars">★★★</td><td>結果は午前発表、総裁会見は2日目午後の見込み</td><td>12月または1月の利上げ観測が本線との見方（植田総裁発言ベース）</td></tr>
-        <tr><td>(参考・推定)11/13(金)</td><td>マイナーSQ（特別清算指数、第2金曜日ルールに基づく推定）</td><td class="stars">★</td><td>-</td><td>公式日程での要確認</td></tr>
-        <tr><td>(参考)11/6(金)</td><td>米10月分雇用統計</td><td class="stars">★★★</td><td>21:30（目安）</td><td>期間外のため参考記載。日程・市場予想ともに要確認</td></tr>
+        <thead><tr><th>日付</th><th>イベント</th><th>重要度</th><th>時刻(JST)</th><th>予想等</th></tr></thead>
+        <tbody>
+          <tr><td>10/15(木)<br><small>本日</small></td><td>米小売売上高(9月分)</td><td class="star">★★★</td><td>21:30</td><td>取得不可</td></tr>
+          <tr><td>10/15(木)<br><small>本日</small></td><td>米PPI(9月分)</td><td class="star">★★</td><td>21:30</td><td>取得不可</td></tr>
+          <tr><td>10/16(金)未明</td><td>TSMC 決算カンファレンスコール</td><td class="star">★★</td><td>3:00頃</td><td>売上は開示済（前年比+約50%）</td></tr>
+          <tr><td>10/20(火)</td><td>日本20年国債入札</td><td class="star">★★</td><td>午後発表</td><td>－</td></tr>
+          <tr><td>10/20(火)頃</td><td>Netflix Q3決算<br><small>(日程未確認)</small></td><td class="star">★★</td><td>米国引き後</td><td>EPS予想$0.82~0.84(未確認)</td></tr>
+          <tr><td>10/21(水)</td><td>AT&amp;T決算</td><td class="star">★</td><td>米国引き前</td><td>取得不可</td></tr>
+          <tr><td>10/22(木)</td><td>テスラ決算</td><td class="star">★★★</td><td>米国引き後</td><td>取得不可</td></tr>
+          <tr><td>10/23(金)</td><td>プロクター・アンド・ギャンブル決算</td><td class="star">★★</td><td>米国引き前</td><td>取得不可</td></tr>
+          <tr><td>10/23(金)頃<br><small>(推定)</small></td><td>全国消費者物価指数(9月分)</td><td class="star">★★★</td><td>8:30頃</td><td>確定日・予想は取得不可</td></tr>
+          <tr><td>10/29(木)未明</td><td>FOMC政策金利発表</td><td class="star">★★★</td><td>29日3:00頃</td><td>CPI上振れで利上げ観測が約52%に上昇（市場推計）</td></tr>
+          <tr><td>10/29(木)</td><td>日本2年国債入札</td><td class="star">★</td><td>午後発表</td><td>－</td></tr>
+          <tr><td>10/29-30(木金)</td><td>日銀金融政策決定会合・展望レポート</td><td class="star">★★★</td><td>30日正午頃結果／午後総裁会見</td><td>10月の追加利上げは主要シナリオではないとの見方</td></tr>
+          <tr><td>10/30(金)早朝</td><td>マイクロソフト・アルファベット・ベライゾン決算</td><td class="star">★★★</td><td>米国引き後→30日早朝</td><td>取得不可</td></tr>
+          <tr><td>11/6(金)<br><small>※2週間超参考</small></td><td>米雇用統計(10月分)</td><td class="star">★★★</td><td>22:30</td><td>取得不可</td></tr>
+        </tbody>
       </table>
-      <canvas class="chart-box" id="eventChart"></canvas>
-      <p class="updated-note">※チャートは各イベントの重要度（★の数）を示す参考図であり、市場価格データではありません。日本のJGB入札日程・次回米雇用統計の正式な発表日・日本全国CPIの発表日は、本稿作成時点で信頼できる一次情報源の確定値を確認できなかったため「取得不可」としています。推測での補完は行っていません。</p>
     </div>
   </section>
 
+  <!-- 9. TMFセクション -->
   <section>
-    <h2>💰 米国ETF「$TMF」（Direxion Daily 20+ Year Treasury Bull 3X Shares）</h2>
+    <h2>米国ETF「$TMF」（Direxion Daily 20+ Year Treasury Bull 3X）</h2>
     <div class="tmf-card">
-      <div class="tmf-top">
+      <div class="tmf-head">
         <div>
-          <div class="label" style="color:var(--sub); font-size:0.85rem;">直近確認できた終値</div>
-          <div class="price down">26.03ドル（10/12時点）</div>
+          <div style="font-size:0.85rem;color:var(--sub);">直近終値（10/13）</div>
+          <div class="tmf-price">$26.38</div>
         </div>
+        <div class="tmf-chg up">▲$0.30（+1.15%）</div>
       </div>
-      <p style="margin:0 0 8px;"><b>前日比：</b>取得不可（当日の変化率を示す一次情報源を確認できず）。参考として、複数の情報源で10/12時点の終値がおおむね26.0〜26.1ドル前後と一致しています。</p>
-      <p style="margin:0 0 8px;"><b>米30年債利回りとの関係性：</b>TMFは残存20年超の米国債指数に3倍のレバレッジをかけたロング型ETFです。長期金利（米30年債利回り）が上昇（＝国債価格が下落）するとTMFは下落しやすく、逆に金利が低下（＝国債価格が上昇）するとTMFは上昇しやすいという逆相関的な設計になっています。米30年債利回りが10/13時点で5.563%と高水準で推移していることから、TMFには下押し圧力がかかりやすい環境が続いているとみられます。</p>
-      <p style="margin:0 0 8px;"><b>直近1ヶ月の値動き（概況）：</b>確認できた範囲では、9月24日時点の27.35ドルから10月12日時点の26.03ドルまで、約1ヵ月で約4.8%下落しています。さらに遡ると8月28日時点では31.33ドルであったとの情報もあり、米長期金利が高水準で推移する中、数ヵ月にわたり下落基調が継続しているとみられます。</p>
-      <div class="warn-box">⚠️ TMFは3倍レバレッジ型ETFのため、日々のボラティリティが非常に大きく、長期保有によるリターンの目減り（減価リスク）があります。長期投資には適さない場合がある点に十分ご留意ください。</div>
+      <p style="font-size:0.92rem;margin:4px 0 10px;">
+        10/14の終値は<strong>取得不可</strong>。同日は米9月CPIが予想を上回り長期金利（10年債+約6bp、5.28%前後）が上昇したとみられ、長期金利上昇はTMFにとって逆風となるため、10/14はTMFも下落した可能性があるが確定値は未確認。
+      </p>
+      <p style="font-size:0.92rem;margin:4px 0 10px;">
+        <strong>米30年債利回りとの関係性：</strong> TMFは残存20年超の米国債に3倍のレバレッジで連動するETF。長期金利（30年債利回りなど）が<u>上昇</u>すると債券価格が下落し、TMFは大きく<u>下落</u>しやすい。逆に長期金利が<u>低下</u>するとTMFは大きく<u>上昇</u>しやすい、という逆相関の関係にある。
+      </p>
+      <p style="font-size:0.92rem;margin:4px 0 10px;">
+        <strong>直近1ヵ月の値動き：</strong> 財政悠慮・長期金利上昇を背景に9月下旬にかけて大きく下落（9/24時点$27.35、1ヵ月-14.66%、年初来-25.49%）。その後10/13時点では$26.38まで幾分戻しているが、依然として下落基調からの戻りの範囲内とみられる。
+      </p>
+      <div class="risk-note">
+        ⚠ TMFは3倍レバレッジETFのため、長期金利のボラティリティがそのまま、かつ増幅されて反映され、値動きが非常に大きくなります。日々のリバランスの影響で、長期間保有するとリターンが市場指数の3倍から大きくズレる「ボラティリティ・ドラッグ」が生じるため、長期保有には適さない場合があります。
+      </div>
     </div>
   </section>
 
-  <footer>
-    <p>本資料は公開情報の整理であり投資助言ではありません。数値は速報ベースのため、業務利用前に各種端末等で確認してください。レバレッジETFは長期投資には適さない場合があります。</p>
-    <p>本稿は2026年10月14日（水）07:10 JST頃にWeb検索で収集した情報を整理したものです。信頼できる形で確認できなかった数値・日付は「取得不可」と明記し、推測での補完は行っていません。断定的な数値が必要な場合は、必ず社内端末・一次ソースでご確認ください。</p>
-    <p><b>出典一覧：</b></p>
-    <p class="srcs">
-      CNBC「Stock market today」（cnbc.com）／
-      TheStreet（thestreet.com）／
-      ad-hoc-news.de／
-      株探（kabutan.jp）／
-      みんかぶFX/為替（fx.minkabu.jp）／
-      OANDA Japan 市場ニュース（oanda.jp）／
-      日本経済新聞マーケットデータ（nikkei.com）／
-      Bloomberg（bloomberg.com）／
-      国際通貨研究所（iima.or.jp）／
-      Robinhood・Investing.com（TMF価格情報）／
-      EDINET開示資料（ファーストリテイリング決算短信）
-    </p>
-  </footer>
+  <!-- 10. 注意書き・出典 -->
+  <section>
+    <div class="disclaimer">
+      本資料は公開情報の整理であり投資助言ではありません。数値は速報ベースのため、業務利用前に各種端末等で確認してください。レバレッジETFは長期投資には適さない場合があります。各数値には取得時点でのばらつき・確認不可な項目があり、「取得不可」と明記した項目は推測で埋めていません。
+      <ul class="sources-list">
+        <li><a href="https://www.cnbc.com/2026/10/13/stock-market-today-live-updates-.html" target="_blank" rel="noopener">CNBC - Stock Market Today</a></li>
+        <li><a href="https://www.thestreet.com/stock-market-today/stock-market-today-dow-jones-sp-500-nasdaq-updates-oct-14-2026" target="_blank" rel="noopener">TheStreet - Stock Market Today (Oct.14,2026)</a></li>
+        <li><a href="https://www.benzinga.com/markets/equities/26/10/62360140/nasdaq-100-drops-1-on-hot-cpi-soxx-falls-7th-day-stock-market-today" target="_blank" rel="noopener">Benzinga</a></li>
+        <li><a href="https://jp.investing.com/news/economic-indicators/article-1711629" target="_blank" rel="noopener">Investing.com 日本語版（米CPI）</a></li>
+        <li><a href="https://s.kabutan.jp/news/n202610141141/" target="_blank" rel="noopener">株探（米CPI・利上げ観測）</a></li>
+        <li><a href="https://www.fxstreet.com/news/us-dollar-index-roars-towards-103-as-hot-cpi-reignite-fed-hike-bets-202610141545" target="_blank" rel="noopener">FXStreet（ドル指数）</a></li>
+        <li><a href="https://www.zaikei.co.jp/article/20261014/873413.html" target="_blank" rel="noopener">財経新聞（東京株式10/14大引け）</a></li>
+        <li><a href="https://kabutan.jp/news/marketnews/?b=n202610140056" target="_blank" rel="noopener">株探（日経225先物 夜間取引終値）</a></li>
+        <li><a href="https://www.sec.gov/Archives/edgar/data/0000886982/000088698226000529/a3q26gsearningsresults.htm" target="_blank" rel="noopener">Goldman Sachs 8-K（3Q2026決算）</a></li>
+        <li><a href="https://investor.tsmc.com/quarterly-results" target="_blank" rel="noopener">TSMC Investor Relations</a></li>
+        <li><a href="https://www.oanda.jp/lab-education/market_news/nfp-sep-2026-review/" target="_blank" rel="noopener">OANDA（米雇用統計9月分）</a></li>
+        <li><a href="https://therighttrader.com/ja/economic-calendar/nonfarm-payrolls" target="_blank" rel="noopener">The Right Trader（米雇用統計日程）</a></li>
+        <li><a href="https://therighttrader.com/ja/economic-calendar/fomc" target="_blank" rel="noopener">The Right Trader（FOMC日程）</a></li>
+        <li><a href="https://www.dlri.co.jp/files/macro/666382.pdf" target="_blank" rel="noopener">第一生命経済研究所（日銀動向）</a></li>
+        <li><a href="https://www.mof.go.jp/jgbs/auction/calendar/2610.htm" target="_blank" rel="noopener">財務省（国債入札カレンダー）</a></li>
+        <li><a href="https://www.businessinsider.jp/article/2609-bond-market-sell-off-high-treasury-yields-interest-rates-fed/" target="_blank" rel="noopener">Business Insider Japan（米30年債）</a></li>
+        <li><a href="https://stockanalysis.com/etf/tmf/" target="_blank" rel="noopener">StockAnalysis.com（TMF）</a></li>
+        <li><a href="https://www.direxion.com/product/daily-20-year-treasury-bull-bear-3x-etfs" target="_blank" rel="noopener">Direxion（TMF/TMV）</a></li>
+      </ul>
+    </div>
+    <footer>作成: 自動生成 市場ブリーフィング Bot ／ 2026-10-15 07:10 JST</footer>
+  </section>
+
 </div>
 
 <script>
-(function(){
-  try{
-    var el = document.getElementById('eventChart');
-    if(!el || !window.Chart) return;
-    new Chart(el, {
-      type:'bar',
-      data:{
-        labels:['10/14 米CPI','10/15 米PPI・小売売上高','10/27-28 FOMC','10/29-30 日銀会合','11/6 米雇用統計(参考)'],
-        datasets:[{
-          label:'重要度（★の数）',
-          data:[3,3,3,3,3],
-          backgroundColor:'#2b5fd9',
-          borderRadius:6
+try{
+  const ctx = document.getElementById('chgChart');
+  if(ctx){
+    new Chart(ctx, {
+      type: 'bar',
+      data: {
+        labels: ['日経先物(夜間)','NYダウ','S&P500','ナスダック','SOX系(半導体)'],
+        datasets: [{
+          label: '前日比(%)',
+          data: [0.21, -0.09, -1.11, -1.88, -2.0],
+          backgroundColor: function(c){
+            const v = c.raw;
+            return v >= 0 ? '#1a7d4a' : '#d23b3b';
+          },
+          borderRadius: 6,
         }]
       },
-      options:{
-        indexAxis:'y',
-        responsive:true, maintainAspectRatio:false,
-        plugins:{legend:{display:false}},
-        scales:{ x:{ beginAtZero:true, max:3, ticks:{ stepSize:1 } } }
+      options: {
+        responsive: true,
+        maintainAspectRatio: false,
+        plugins: { legend: { display: false }, title: { display: true, text: '主要指標 前日比(%) ※SOXは参考値', font:{size:12} } },
+        scales: {
+          y: { ticks: { callback: (v)=> v + '%' } },
+          x: { ticks: { font: { size: 10 } } }
+        }
       }
     });
-  }catch(e){}
-})();
+  }
+}catch(e){ /* chart optional */ }
 </script>
+
 </body>
 </html>
