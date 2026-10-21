@@ -123,33 +123,47 @@
   <section class="card">
     <h2>📋 本日の見通し</h2>
     <ul class="lead-points">
-      <li>海外市場はNYダウが大幅反発、半導体中心にAI投資懸念はくすぶるもリスク選好はやや回復</li>
-      <li>シカゴ日経平均先物(円建て)は前日の東京終値を上回る水準で推移、寄り付きは上昇含みか</li>
-      <li>来週にFOMC・日銀会合を控え、方向感は限定的になりやすい一日</li>
+      <li>米国市場は現地10/21、ダウ・ナスダックともに続伸基調。弱めの雇用統計を受けたFRB利下げ期待とハイテク株選好が支え</li>
+      <li>シカゴ日経平均先物(円建て)は10/20の東京終値を上回る水準で推移し、寄り付きは反発含みか</li>
+      <li>10/27-28のFOMC、10/29-30の日銀会合を控え、方向感は限定的になりやすい一日</li>
     </ul>
     <strong style="font-size:13px;">判断根拠</strong>
     <ul class="reasons">
-      <li>NYダウ+1.02%・S&P500+0.28%と反発、米国とイランの協議を巡る思惑報道が支援材料に(思惑報道であり確定情報ではない点に留意)</li>
-      <li>ナスダック総合は▲0.02%とほぼ横ばい。AI関連企業の投資負担・需要持続性を巡る懸念は根強く残る</li>
-      <li>前日の東京市場は半導体関連株中心の売りで日経平均が▲1.30%と大きく下落した反動も意識されやすい</li>
-      <li>シカゴ日経平均先物(円建て)が前日東京終値(64,075円)を上回る水準(65,000円前後)で推移と報じられており、自律反発を試す展開も想定される</li>
-      <li>10/27-28のFOMC、10/29-30の日銀会合を控え、持ち高調整の売買が優勢になる可能性がある</li>
+      <li>ダウ平均は日本時間22日4時台時点で前日比+154ドル(+0.29%)前後、ナスダック総合は+216ポイント(+0.82%)前後と堅調に推移(確定終値は別途要確認)<sup>[1]</sup></li>
+      <li>シカゴ日経平均先物(円建て)が日本時間22日4時台に6万4,715円と、10/20の東京終値(64,075.42円)を上回る水準で推移<sup>[1]</sup></li>
+      <li>前日(10/20)の東京市場は半導体関連株中心の売りで日経平均が-1.30%と大きく下落しており、自律反発を試す展開も想定される<sup>[2]</sup></li>
+      <li>9月分の米雇用統計(10/2発表)は非農業部門雇用者数+2.9万人と市場予想を下回る弱さで、FRBの利下げ観測が相場の下支え要因に<sup>[8]</sup></li>
+      <li>一方で米長期金利は10年債5.1%台・30年債5.5%台と高水準が続いており、金利動向次第では上値が抑えられる可能性がある<sup>[9]</sup></li>
+    </ul>
+    <div class="section-sub" style="margin-top:10px;">想定レンジの目安: シカゴ日経平均先物(6万4,715円前後、10/22 4時台の報道値)を踏まえると、東京市場の寄り付きは6万4,500円〜6万5,000円程度が意識されやすいが、断定はできない。</div>
+    <strong style="font-size:13px;">注目セクター・テーマ</strong>
+    <ul class="reasons">
+      <li>半導体・AI関連株(前日の下落に対する自律反発を試せるか)</li>
+      <li>FOMC・日銀会合を控えた金融株・金利敏感株の持ち高調整</li>
+      <li>為替(ドル円158円前後)の推移と輸出関連株への影響</li>
+    </ul>
+    <strong style="font-size:13px;">本日のリスク要因</strong>
+    <ul class="reasons">
+      <li>来週のFOMC・日銀会合を前にしたポジション調整で、方向感が出にくい可能性</li>
+      <li>米長期金利(10年・30年債)の高止まり・再上昇</li>
+      <li>原油高・地政学リスクによるインフレ再燃懸念</li>
+      <li>AI関連企業の設備投資負担・需要持続性を巡る懸念の再燃</li>
     </ul>
   </section>
 
   <section>
     <div class="card">
       <h2>📊 主要指標</h2>
-      <div class="section-sub">前日比は符号付きで表示。矢印は上昇(▲赤)・下落(▼青)・横ばい(―)。</div>
+      <div class="section-sub">前日比は符号付きで表示。矢印は上昇(▲赤)・下落(▼青)・横ばい(―)。日付が異なるデータが混在する点に注意。</div>
       <div class="tiles" id="tiles"></div>
     </div>
   </section>
 
   <section>
     <div class="card">
-      <h2>📈 主要指数 前日比(%)</h2>
+      <h2>📈 主要指数 騰落率(%)</h2>
       <div class="chart-wrap"><canvas id="chgChart"></canvas></div>
-      <div class="section-sub" style="margin-top:8px;">※ データが確認できた指数のみ表示。VIX・SOX・米欧州金利等は取得不可のため非掲載。</div>
+      <div class="section-sub" style="margin-top:8px;">※ 日米で基準日が異なる点に注意(NYダウ・ナスダックは10/21、日経平均・TOPIXは10/20の値)。SOX指数・VIXは取得不可のため非掲載。</div>
     </div>
   </section>
 
@@ -159,13 +173,13 @@
       <table>
         <thead><tr><th>年限</th><th>国・地域</th><th>水準</th><th>備考/出典</th></tr></thead>
         <tbody>
-          <tr><td>米10年債</td><td>米国</td><td class="unavailable">取得不可(本日分)</td><td>参考: 10/7に一時5.36%台(約24年半ぶり高水準)と報道。原油高・インフレ懸念が背景<sup>[5]</sup></td></tr>
-          <tr><td>米30年債</td><td>米国</td><td class="unavailable">取得不可(本日分)</td><td>本日時点の確証ある水準は未確認</td></tr>
-          <tr><td>日本10年債(JGB)</td><td>日本</td><td class="unavailable">取得不可(本日分)</td><td>参考: 8/17に一時2.93%(1996年以来の高水準)。財政懸念・日銀利上げ観測が背景<sup>[6]</sup></td></tr>
-          <tr><td>日本20年債(JGB)</td><td>日本</td><td class="unavailable">取得不可(本日分)</td><td>本日時点の確証ある水準は未確認</td></tr>
+          <tr><td>米10年債</td><td>米国</td><td>約5.19%</td><td>10/15時点の参考値。9月下旬に一時5.2%台(約24年ぶり高水準)まで急騰後、やや低下<sup>[9]</sup></td></tr>
+          <tr><td>米30年債</td><td>米国</td><td>約5.52%</td><td>10/15時点の参考値。10/5時点では5.66%<sup>[9]</sup></td></tr>
+          <tr><td>日本10年債(JGB)</td><td>日本</td><td class="unavailable">取得不可(本日分)</td><td>参考: 8/17に一時2.930%(1996年以来の高水準)。財政懸念・日銀利上げ観測が背景<sup>[10]</sup></td></tr>
+          <tr><td>日本20年債(JGB)</td><td>日本</td><td class="unavailable">取得不可(本日分)</td><td>参考: 9/1に一時3.845%まで上昇と報道<sup>[10]</sup></td></tr>
         </tbody>
       </table>
-      <div class="section-sub" style="margin-top:8px;">日銀は10/29-30に金融政策決定会合を開催予定。市場では追加利上げの思惑がくすぶっている<sup>[7]</sup>。</div>
+      <div class="section-sub" style="margin-top:8px;">日銀は10/29-30に金融政策決定会合・展望レポート公表を予定。FRBは10/27-28にFOMCを開催予定<sup>[11][12]</sup>。</div>
     </div>
   </section>
 
@@ -183,10 +197,11 @@
       <table>
         <thead><tr><th>銘柄</th><th>市場</th><th>予想比</th><th>ガイダンス</th><th>株価反応</th></tr></thead>
         <tbody>
-          <tr><td colspan="5" class="unavailable">取得不可 — 個別銘柄の決算詳細は各社IR情報・決算カレンダーでご確認ください</td></tr>
+          <tr><td>ジョンソン・エンド・ジョンソン(JNJ)</td><td>米国</td><td class="unavailable">取得不可</td><td class="unavailable">取得不可</td><td class="unavailable">取得不可</td></tr>
+          <tr><td colspan="5" class="unavailable">上記以外(マグニフィセント7、テスラ、IBM、日経225・TOPIX Core30主力銘柄 等) — 発表日・結果ともに取得不可。各社IR情報・決算カレンダーでご確認ください</td></tr>
         </tbody>
       </table>
-      <div class="section-sub" style="margin-top:8px;">参考: 2026年7-9月期(Q3)決算シーズンは9月上旬のOracle・Adobe等から本格化しており、S&P500全体の増益率は市場予想で高水準との分析がある(時期の異なる記事のため参考情報扱い)<sup>[8]</sup>。</div>
+      <div class="section-sub" style="margin-top:8px;">参考: JNJは10/19の寄り付き前に決算発表を予定していたと証券会社の決算カレンダーに記載があるが、結果の詳細は本稿時点で確認できず<sup>[13]</sup>。米大型ハイテク株(マグニフィセント7)の決算は例年10月後半〜11月上旬に集中する傾向がある(時期の異なる過去情報のため参考扱い)<sup>[14]</sup>。</div>
     </div>
   </section>
 
@@ -196,10 +211,10 @@
       <div class="job-grid">
         <div class="job-box"><div class="k">直近(9月分・10/2発表)非農業部門雇用者数</div><div class="v">+29,000人</div></div>
         <div class="job-box"><div class="k">直近 失業率</div><div class="v">4.2%</div></div>
-        <div class="job-box"><div class="k">平均時給(前月比)</div><div class="v unavailable" style="font-size:13px;">取得不可</div></div>
+        <div class="job-box"><div class="k">平均時給(前月比/前年比)</div><div class="v" style="font-size:15px;">+0.1% / +3.0%(37.81ドル)</div></div>
         <div class="job-box"><div class="k">次回発表日(10月分)</div><div class="v">11/6(金)</div></div>
       </div>
-      <div class="section-sub">米東部時間8:30発表(日本時間11/6 22:30頃)。市場予想は現時点では未確認<sup>[9][10]</sup>。</div>
+      <div class="section-sub">9月分の非農業部門雇用者数は市場予想(9.0万人増)を大きく下回った。次回は米東部時間8:30発表(日本時間11/6 22:30頃)。10月分の市場予想は本稿時点で未確認<sup>[8]</sup>。</div>
     </div>
   </section>
 
@@ -207,19 +222,19 @@
     <div class="card">
       <h2>🗓️ 今後の重要イベント(約2週間)</h2>
       <table>
-        <thead><tr><th>日付</th><th>重要度</th><th>イベント</th><th>時刻(JST)</th></tr></thead>
+        <thead><tr><th>日付</th><th>重要度</th><th>イベント</th><th>時刻(JST)/予想</th></tr></thead>
         <tbody>
-          <tr><td>10/27(火)〜28(水)</td><td class="stars">★★★</td><td>FOMC(米連邦公開市場委員会)、政策金利発表</td><td>10/29未明(米東部10/28 14:00発表)</td></tr>
-          <tr><td>10/29(木)〜30(金)</td><td class="stars">★★★</td><td>日銀金融政策決定会合・展望レポート公表・総裁会見</td><td>会見 10/30 15:30〜</td></tr>
+          <tr><td>10/27(火)〜28(水)</td><td class="stars">★★★</td><td>FOMC(米連邦公開市場委員会)、政策金利発表</td><td>10/29未明(米東部10/28 14:00発表)<sup>[12]</sup></td></tr>
+          <tr><td>10/29(木)〜30(金)</td><td class="stars">★★★</td><td>日銀金融政策決定会合・展望レポート公表・総裁会見</td><td>会見 10/30 15:30〜<sup>[11]</sup></td></tr>
           <tr><td>10/31(土)</td><td class="stars">★</td><td>TOPIX Core30等 定期構成銘柄入れ替え反映開始</td><td>—</td></tr>
           <tr><td>11/2(月)</td><td class="stars">★★</td><td>ISM製造業景況指数(米)</td><td>11/3 0:00頃(米東部11/2 10:00)</td></tr>
-          <tr><td>11/2(月)</td><td class="stars">★</td><td>5年クライメート・トランジション国債入札(日本)</td><td>—</td></tr>
           <tr><td>11/3(火)</td><td class="stars">—</td><td>日本市場休場(文化の日)</td><td>終日休場</td></tr>
           <tr><td>11/5(木)</td><td class="stars">★</td><td>10年利付国債入札(日本)</td><td>—</td></tr>
-          <tr><td>11/6(金)</td><td class="stars">★★★</td><td>米雇用統計(10月分)</td><td>22:30頃(米東部8:30)</td></tr>
+          <tr><td>11/6(金)</td><td class="stars">★★★</td><td>米雇用統計(10月分)</td><td>22:30頃(米東部8:30)、市場予想は未確認<sup>[8]</sup></td></tr>
+          <tr><td>11/13(金)</td><td class="stars">★</td><td>SQ算出(ミニ等、第2金曜日の定例日程)</td><td>—</td></tr>
         </tbody>
       </table>
-      <div class="section-sub" style="margin-top:8px;">市場予想が確認できた指標は上記のみ。CPI・PPI・小売売上高・日銀短観等、上記期間内の正確な発表日が裏付けられなかった項目は掲載を見送りました(推測での記載を避けるため)<sup>[11][12][13]</sup>。</div>
+      <div class="section-sub" style="margin-top:8px;">米CPI・PPI・小売売上高、日本CPI・日銀短観等について、本稿対象期間内の正確な発表日・市場予想を裏付ける情報は確認できず「取得不可」としています(推測での記載を避けるため)。確認でき次第、各種端末・公式発表でご確認ください。</div>
     </div>
   </section>
 
@@ -230,17 +245,17 @@
       <table style="margin-bottom:10px;">
         <tbody>
           <tr><td style="width:55%;">直近確認できた終値</td><td><strong>31.33ドル</strong>(前日比 -0.98%)</td></tr>
-          <tr><td>基準日</td><td>2026年8月28日時点(本日時点の最新値は取得不可)<sup>[14]</sup></td></tr>
+          <tr><td>基準日</td><td>2026年8月28日時点(本日時点の最新値は取得不可)<sup>[15]</sup></td></tr>
         </tbody>
       </table>
       <p style="font-size:14px; margin:8px 0;">
-        TMFは米国の残存期間20年超の長期国債に対して日々+3倍のレバレッジをかけるETFで、
-        <strong>米30年債利回りが上昇(債券価格が下落)するとTMFは下落しやすく、利回りが低下するとTMFは上昇しやすい</strong>、
-        という逆相関の関係にあります。
+        TMFは米国の残存期間20年超の長期国債に対して日々+3倍のレバレッジをかけるETFです。
+        <strong>米30年債利回りが上昇(長期国債価格が下落)するとTMFは下落しやすく、利回りが低下(債券価格が上昇)するとTMFは上昇しやすい</strong>、
+        という逆相関の関係にあります。10/15時点で米30年債利回りは約5.52%と高水準が続いており、金利の方向感がTMFの値動きを左右しやすい状況です<sup>[9]</sup>。
       </p>
       <p style="font-size:14px; margin:8px 0;">
-        直近1ヶ月の値動きの詳細(日次データ)は本日時点で裏付けが取れていないため「取得不可」としますが、
-        2026年に入り米長期金利は歴史的な高水準圏で推移しており、TMFは年初来で大きく下落した局面があったと報じられています<sup>[14]</sup>。
+        直近1ヶ月(9月下旬〜10月)の日次値動きの詳細は本稿時点で裏付けが取れず「取得不可」としますが、
+        2026年に入り米長期金利は歴史的な高水準圏で推移しており、TMFは年初来で大きく下落した局面があったと報じられています。7月末時点の終値は30.59ドル、8月末時点では31.33ドルと、夏場にかけてはやや持ち直した水準で推移していました<sup>[15]</sup>。
       </p>
       <div class="risk-box">
         ⚠️ TMFは3倍レバレッジ型ETFであるため、原資産(長期国債)のボラティリティが3倍に増幅されるうえ、
@@ -269,17 +284,19 @@
   document.getElementById('timeLine').textContent = '作成時刻: ' + jstTimeFormatter.format(now) + ' JST';
 
   const tiles = [
-    {label:'日経平均先物(CME/大阪 夜間)', value:'65,000円前後', chg:'前日終値比 上昇含み', dir:'up', note:'10/21 4時台時点の報道値、確定清算値は別途要確認[1]'},
-    {label:'日経平均(前営業日終値)', value:'64,075.42円', chg:'-841.28円(-1.30%)', dir:'down', note:'10/20大引け[2]'},
-    {label:'TOPIX(前営業日終値)', value:'4,009.21', chg:'-58.27(-1.43%)', dir:'down', note:'10/20大引け[2]'},
-    {label:'NYダウ', value:'52,495.88ドル', chg:'+529.85(+1.02%)', dir:'up', note:'10/20 NY引け[1][3]'},
-    {label:'S&P500', value:'7,712.57', chg:'+0.28%', dir:'up', note:'10/20 NY引け[1]'},
-    {label:'ナスダック総合', value:'26,424.82', chg:'-0.02%', dir:'flat', note:'10/20 NY引け[1]'},
-    {label:'ドル円', value:'158.11円前後', chg:'終盤 弱含み', dir:'flat', note:'10/20 17時時点[2]'},
+    {label:'日経平均先物(CME 夜間)', value:'64,715円', chg:'前日(10/20)終値比 +640円前後', dir:'up', note:'10/22 4:24時点の報道値。確定清算値は別途要確認[1]'},
+    {label:'日経平均(前営業日終値)', value:'64,075.42円', chg:'-841.28円(-1.30%)', dir:'down', note:'10/20大引け。10/21分の大引けは本稿時点で取得不可[2]'},
+    {label:'TOPIX(前営業日終値)', value:'4,009.21', chg:'-58.27(-1.43%)', dir:'down', note:'10/20大引け。10/21分は取得不可[2]'},
+    {label:'NYダウ', value:'52,650ドル前後', chg:'+154.78(+0.29%)', dir:'up', note:'10/21、日本時間22日4:13時点の値。確定終値は別途要確認[1]'},
+    {label:'S&P500', value:'取得不可(10/21分)', chg:'参考:10/20終値+0.28%', dir:'flat', note:'10/20終値は7,712.57[3]'},
+    {label:'ナスダック総合', value:'26,640ドル前後', chg:'+216.13(+0.82%)', dir:'up', note:'10/21、日本時間22日4:13時点の値。確定終値は別途要確認[1]'},
+    {label:'ドル円', value:'158.17円前後', chg:'前週末比+16銭', dir:'flat', note:'10/19 17時時点(東京)。10/21分は取得不可[4]'},
     {label:'ユーロ円', value:'取得不可', chg:'', dir:'flat', note:'本日分データ未確認'},
-    {label:'米10年債利回り', value:'取得不可', chg:'', dir:'flat', note:'参考:10/7に一時5.36%台[5]'},
-    {label:'WTI原油', value:'取得不可', chg:'', dir:'flat', note:'本日分データ未確認'},
-    {label:'金(ゴールド)', value:'取得不可', chg:'', dir:'flat', note:'本日分データ未確認'},
+    {label:'米10年債利回り', value:'約5.19%', chg:'参考値(10/15時点)', dir:'flat', note:'9月下旬に一時5.2%台(約24年ぶり)[9]'},
+    {label:'日本10年債利回り', value:'取得不可', chg:'', dir:'flat', note:'参考:8/17に一時2.930%[10]'},
+    {label:'WTI原油', value:'約96.78ドル', chg:'参考値(10/19時点)', dir:'flat', note:'単一出典のため参考扱い[6]'},
+    {label:'金(ゴールド)', value:'約4,185ドル', chg:'参考値(10/19時点)', dir:'flat', note:'単一出典のため参考扱い[6]'},
+    {label:'SOX指数', value:'取得不可', chg:'', dir:'flat', note:'本日分データ未確認'},
     {label:'VIX指数', value:'取得不可', chg:'', dir:'flat', note:'本日分データ未確認'},
   ];
 
@@ -296,14 +313,14 @@
   });
 
   const news = [
-    {txt:'東京株式市場、日経平均は反落し64,075.42円で大引け(前日比-841.28円、-1.30%)。AI・半導体関連株中心に売りが広がった。', src:'財経新聞(2026/10/20)', url:'https://www.zaikei.co.jp/article/20261020/874216.html'},
-    {txt:'NYダウは大幅反発し52,495.88ドル(+529.85ドル、+1.02%)。米国とイランの協議進展を巡る思惑的な報道が買い材料に(未確認情報で上値は伸び悩む場面も)。', src:'みんかぶ FX(2026/10/21 05:32)', url:'https://fx.minkabu.jp/news/382131'},
-    {txt:'ナスダック総合はほぼ横ばい(-0.02%)。AI関連企業の設備投資負担や需要の持続性を巡る懸念が市場でくすぶり続けている。', src:'みんかぶ FX(2026/10/21)', url:'https://fx.minkabu.jp/news/382131'},
-    {txt:'ドル円は158円前後で推移。米長期金利の低下を受け終盤は弱含みとの報道。', src:'財経新聞・為替関連報道(2026/10/20)', url:'https://www.zaikei.co.jp/article/20261020/874216.html'},
-    {txt:'シカゴ日経平均先物(円建て)は10/21未明の時点で65,000円前後。前日の東京大引け水準を上回る推移を示唆。', src:'みんかぶ FX(2026/10/21 04:17)', url:'https://fx.minkabu.jp/news/382129'},
-    {txt:'日本銀行は10/29-30に金融政策決定会合を開催予定。展望レポートを公表し、植田総裁会見は30日15:30から実施される見込み。', src:'日本銀行 公表予定', url:'https://www.boj.or.jp/announcements/calendar/index.htm'},
-    {txt:'FRBは10/27-28にFOMCを開催予定。利下げ継続か据え置きかを巡り思惑が交錯している。', src:'FOMC Meeting Schedule 2026', url:'https://fedratecalc.com/fomc-meeting-schedule/'},
-    {txt:'米雇用統計(9月分、10/2発表)は非農業部門雇用者数+29,000人、失業率4.2%。次回10月分は11/6発表予定。', src:'米労働省雇用統計(BLS)関連報道', url:'https://www.bls.gov/news.release/empsit.nr0.htm'},
+    {txt:'NY市場(現地10/21)はダウ平均・ナスダックともに堅調。日本時間22日4時台時点でダウ平均は52,650ドル前後(+154.78ドル、+0.29%)、ナスダック総合は26,640ドル前後(+216.13、+0.82%、序盤には+1.2%の場面も)。', src:'みんかぶ FX(2026/10/22 04:24)', url:'https://fx.minkabu.jp/news/382256'},
+    {txt:'シカゴ日経平均先物は日本時間22日4時24分時点で64,715円。10/20の東京終値(64,075.42円)を上回る水準で推移。', src:'みんかぶ FX(2026/10/22 04:24)', url:'https://fx.minkabu.jp/news/382256'},
+    {txt:'東京株式市場、10/20の日経平均は反落し64,075.42円で大引け(前日比-841.28円、-1.30%)。AI・半導体関連株中心に売りが広がった。TOPIXも4,009.21(-58.27、-1.43%)。', src:'財経新聞(2026/10/20)', url:'https://www.zaikei.co.jp/article/20261020/874216.html'},
+    {txt:'10/20のNY株式はNYダウが529.85ドル高の52,495.88ドルと大幅反発。原油安や良好な企業決算が相場を支えた。ナスダックはほぼ横ばい(-0.02%)で推移。', src:'財経新聞/Fisco(2026/10/21)', url:'https://www.zaikei.co.jp/article/20261021/874272.html'},
+    {txt:'ドル円は10/19午後5時時点で158円16〜18銭(前週末比+16銭)。同日午前は157円91〜92銭まで円高に振れる場面もあり、植田総裁が16日会見で利上げ継続姿勢を示したことが背景。', src:'共同通信配信(くまにち、2026/10/19)', url:'https://kumanichi.com/articles/2048091'},
+    {txt:'米雇用統計(9月分、10/2発表)は非農業部門雇用者数+29,000人と市場予想(9.0万人増)を下回る弱さ。失業率4.2%、平均時給は前月比+0.1%・前年比+3.0%(37.81ドル)。次回10月分は11/6発表予定。', src:'第一生命経済研究所/Monex関連報道', url:'https://www.dlri.co.jp/files/macro/666250.pdf'},
+    {txt:'米長期金利は10/15時点で10年債5.19%・30年債5.52%。9月下旬には10年債が一時5.2%台(約24年ぶり高水準)まで急騰した後、10月半ばにかけてやや低下している。', src:'YCharts/MacroRadar関連データ', url:'https://ycharts.com/indicators/30_year_treasury_rate'},
+    {txt:'日本の長期金利は財政懸念・日銀利上げ観測を背景に歴史的高水準で推移。10年債は8/17に一時2.930%(1996年以来)、20年債は9/1に3.845%まで上昇したと報じられている。日銀は10/29-30に金融政策決定会合を開催予定。', src:'日本銀行 公表予定/関連報道', url:'https://www.boj.or.jp/announcements/calendar/index.htm'},
   ];
   const newsEl = document.getElementById('newsList');
   news.forEach(n=>{
@@ -314,19 +331,21 @@
   });
 
   const sources = [
-    {name:'みんかぶ FX「NY各市場」速報記事群(2026/10/20-21)', url:'https://fx.minkabu.jp/news/382131'},
+    {name:'みんかぶ FX「NY各市場」速報記事(2026/10/22 04:24)', url:'https://fx.minkabu.jp/news/382256'},
+    {name:'みんかぶ FX「NY各市場」速報記事(2026/10/22 03:14)', url:'https://fx.minkabu.jp/news/382254'},
     {name:'財経新聞「日経平均大引け」(2026/10/20)', url:'https://www.zaikei.co.jp/article/20261020/874216.html'},
-    {name:'OANDA Japan「日経平均サマリー(20日)」', url:'https://www.oanda.jp/lab-education/market_news/mn_1039722_202610201753/'},
+    {name:'財経新聞/Fisco「NY株式:NYダウは529.85ドル高」(2026/10/21)', url:'https://www.zaikei.co.jp/article/20261021/874272.html'},
+    {name:'investing.com「NY株式:NYダウは529.85ドル高」', url:'https://jp.investing.com/news/forex-news/article-1718461'},
+    {name:'共同通信配信(くまにち)為替相場関連記事', url:'https://kumanichi.com/articles/2048091'},
+    {name:'thriveinmarkets.com「Oil price analysis」(WTI・金、10/19時点、単一出典)', url:'https://thriveinmarkets.com/oil/'},
+    {name:'第一生命経済研究所 米雇用統計分析', url:'https://www.dlri.co.jp/files/macro/666250.pdf'},
+    {name:'YCharts「30 Year Treasury Rate」', url:'https://ycharts.com/indicators/30_year_treasury_rate'},
+    {name:'MacroRadar「The economy on October 17, 2026」', url:'https://www.macroradar.io/as-of/2026-10-17'},
     {name:'日本銀行 金融政策決定会合 開催予定', url:'https://www.boj.or.jp/announcements/calendar/index.htm'},
-    {name:'共同通信/くまにち「米長期金利一時5.36%台」', url:'https://kumanichi.com/articles/2044297'},
-    {name:'FOMC Meeting Schedule 2026(fedratecalc.com)', url:'https://fedratecalc.com/fomc-meeting-schedule/'},
-    {name:'米雇用統計(Employment Situation) - BLS', url:'https://www.bls.gov/news.release/empsit.nr0.htm'},
-    {name:'米雇用統計 次回発表日(financecalendar.com)', url:'https://www.financecalendar.com/event/us-employment-situation-non-farm-payrolls-october-2026/'},
-    {name:'日本国債入札カレンダー(財務省)', url:'https://www.mof.go.jp/jgbs/auction/calendar/2611.htm'},
-    {name:'TOPIX Core30 定期見直し(松井証券)', url:'https://finance.matsui.co.jp/news/619479/index'},
-    {name:'ISM製造業景況指数 発表日程(OANDA Japan)', url:'https://www.oanda.jp/lab-education/dictionary/ism-manufacturing-report-on-business/'},
+    {name:'FOMC Rate Decision October 2026(financecalendar.com)', url:'https://www.financecalendar.com/?p=1228'},
+    {name:'モネックス証券 米国株決算カレンダー関連記事', url:'https://info.monex.co.jp/news/2026/20260924_02.html'},
+    {name:'Japan 10-Year/20-Year Treasury Yield 関連報道(kucoin.com news flash)', url:'https://www.kucoin.com/news/flash/japan-10-year-treasury-yield-hits-30-year-high'},
     {name:'TMF株価データ(stockanalysis.com)', url:'https://stockanalysis.com/stocks/TMF'},
-    {name:'Japan 10-Year Treasury Yield(kucoin.com news flash)', url:'https://www.kucoin.com/news/flash/japan-10-year-treasury-yield-hits-30-year-high'},
   ];
   const srcEl = document.getElementById('sourcesList');
   sources.forEach(s=>{
@@ -340,10 +359,10 @@
     new Chart(ctx, {
       type:'bar',
       data:{
-        labels:['NYダウ','S&P500','ナスダック','日経平均','TOPIX'],
+        labels:['NYダウ(10/21)','ナスダック(10/21)','日経平均(10/20)','TOPIX(10/20)'],
         datasets:[{
-          data:[1.02, 0.28, -0.02, -1.30, -1.43],
-          backgroundColor:['#d1362f','#d1362f','#6b7280','#1c6fd1','#1c6fd1'],
+          data:[0.29, 0.82, -1.30, -1.43],
+          backgroundColor:['#d1362f','#d1362f','#1c6fd1','#1c6fd1'],
           borderRadius:6,
         }]
       },
