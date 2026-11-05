@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
-<title>朝の相場ブリーフィング 2026/11/05</title>
+<title>朝の相場ブリーフィング 2026/11/06</title>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.4/chart.umd.min.js"></script>
 <style>
   :root{
@@ -73,7 +73,7 @@
   .news-item{padding:12px 0;border-bottom:1px solid var(--border);}
   .news-item:last-child{border-bottom:none;}
   .news-item p{margin:0 0 4px;font-size:0.96rem;}
-  .news-item a{color:#8fc4ff;font-size:0.78rem;text-decoration:none;word-break:break-all;}
+  .news-item a{color:#8fc4ff;font-size:0.78rem;text-decoration:none;word-break:break-all;margin-right:8px;}
   .news-item a:hover{text-decoration:underline;}
 
   .stars{color:var(--accent);letter-spacing:1px;}
@@ -86,6 +86,9 @@
   .tmf-row .v{font-weight:800;font-size:1.15rem;}
   .tmf-note{font-size:0.88rem;color:var(--sub);margin-top:8px;}
   .risk-box{background:rgba(255,92,92,0.1);border:1px solid rgba(255,92,92,0.4);border-radius:10px;padding:10px 12px;margin-top:12px;font-size:0.88rem;color:#ffb3b3;}
+
+  .alert-box{background:rgba(78,168,255,0.12);border:1px solid rgba(78,168,255,0.4);border-radius:var(--radius);padding:14px 16px;font-size:0.92rem;}
+  .alert-box strong{color:#8fc4ff;}
 
   .disclaimer{background:var(--card2);border:1px solid var(--border);border-radius:var(--radius);padding:14px 16px;font-size:0.82rem;color:var(--sub);}
   .disclaimer p{margin:0 0 8px;}
@@ -101,28 +104,43 @@
 
 <header>
   <div class="date-row">
-    <div class="date">2026年11月5日(木)</div>
-    <div class="made">作成時刻 07:10 JST</div>
+    <div class="date">2026年11月6日(金)</div>
+    <div class="made">作成時刻 07:15 JST</div>
   </div>
   <h1>朝の相場ブリーフィング</h1>
-  <span class="badge slightly-bull">地合い判定: やや強気</span>
+  <span class="badge bear">地合い判定: 弱気</span>
 </header>
+
+<section>
+  <div class="alert-box">
+    <strong>⚠️ 速報:</strong> 米国市場は11/5(米東部時間)に主要3指数が大幅安(ダウ-3.44%、S&amp;P500-4.36%、ナスダック-5.52%)。前日11/4の中間選挙後ラリーをほぼ帳消しにしました。AI投資の採算性懸念から半導体・ハイテク株中心に売りが広がり、VIXも急騰。日経225先物(夜間)も大幅下落しており、本日の東京市場は大幅安での寄り付きが警戒されます。
+  </div>
+</section>
 
 <section>
   <div class="sec-title"><span class="num">1</span>本日の見通し</div>
   <div class="card">
     <ol class="outlook-lines" style="list-style:none;">
-      <li>① 米中間選挙の不確実性後退で米株が大幅高。NYダウは2025年4月以来の大幅上昇。</li>
-      <li>② 米金利・VIXが急低下しリスク選好は回復するが、半導体株(SOX)は逆行安。</li>
-      <li>③ 東京は本日トヨタ・ソニーなど主要決算が相次ぎ、個別株要因で振れやすい。</li>
+      <li>① 米国株が11/5(米東部時間)に大幅急落、前日の中間選挙後ラリーを完全に帳消し。</li>
+      <li>② VIX(恐怖指数)が急騰、取引時間中に一時+48%・終値近辺でも8カ月ぶり高水準。</li>
+      <li>③ 日経225先物(夜間)も米株急落に連動して大幅下落。東京は大幅安スタートが見込まれる。</li>
     </ol>
     <ul class="grounds">
-      <li>米中間選挙(11/3投票)の結果判明を受け、政治的不確実性が後退。NYダウ+3.03%・S&amp;P500+1.58%・ナスダック+1.44%の大幅高で終了(いずれも2026/11/4(水)終値)。</li>
-      <li>VIX指数は前日の20台から17台まで急低下したと報じられ、リスク選好の回復を示唆。</li>
-      <li>一方で半導体株指数(SOX)は全体上昇に反して約4%安との報道があり、AMDも好決算(AI需要で記録的増収)にもかかわらず株価は反応薄〜下落。半導体比率の高い日本株には重荷になり得る。</li>
-      <li>米長期金利(10年債)は日中4.9%台で低下方向、ドルも軟化との報道。金利低下・ドル安は株式バリュエーションには支援的だが、ドル安は日本の輸出関連企業には逆風となりうる。</li>
-      <li>東京市場は前営業日(11/4)に選挙結果判明前の警戒感から日経平均が3日続落・893円安となっており、本日は選挙不確実性後退を好感した買い戻しと、半導体株の戻り鈍さが綱引きになりやすい。</li>
+      <li>NY株式(11/5・米東部時間)は主要3指数が揃って大幅安。ダウ平均51,523.06(-1,833.06、-3.44%)、S&amp;P500 7,353.73(-334.89、-4.36%)、ナスダック総合24,315.00(-1,421.51、-5.52%)で終えたと報じられている。AI投資の採算性への懸念から半導体・ハイテク株中心に売りが広がった。</li>
+      <li>前日11/4は米中間選挙(11/3投票)で民主党が上下両院で過半数を奪還したことを受け、政治的不確実性の後退を好感してダウ+1,569.40(53,356.12)、ナスダック+364.51(25,736.51)、S&amp;P500+119.70(7,688.62)の大幅高で終えていたが、11/5の急落でこの上昇分はほぼ帳消しとなった。</li>
+      <li>VIX指数は取引時間中に一時+48%急騰(2025年4月以来の上昇率)、終値近辺でも8カ月ぶり高値圏の28前後まで上昇したと報じられ、短期的なリスク回避姿勢の強まりを示している。</li>
+      <li>大阪取引所の日経225先物(夜間取引)も米株急落を受けて下落。22時台は前日比+220円(61,140円)だったが、日付が変わった2時台には-2,120円(58,800円)まで急落、シカゴ(CME)経由でも5時台に58,125円前後との報道があり、東京市場は11/5終値61,077.90円を大きく下回る水準での寄り付きが見込まれる。</li>
+      <li>東京市場は11/5時点で既に日経平均が4日続落・5カ月半ぶりの安値水準(61,077.90円)まで下げていたところへの追加の海外ショックであり、半導体・AI関連を中心に本日は一段の下押し圧力が警戒される。</li>
     </ul>
+    <p style="font-size:0.85rem;color:var(--sub);margin-top:12px;">
+      <strong>想定レンジの目安:</strong> 夜間取引で確認できた直近値(2時台58,800円、CME経由5時台58,125円前後)を踏まえると、寄り付きは57,000円台後半〜59,000円台前半になる可能性があるが、最終の夜間取引終値(6時)は本資料作成時点で確認できておらず、断定はできません。
+    </p>
+    <p style="font-size:0.85rem;color:var(--sub);margin-top:8px;">
+      <strong>注目セクター・テーマ:</strong> 半導体・AI関連(大幅安警戒・ボラティリティ大)、内需・ディフェンシブへの資金シフト、金(ゴールド)、本日22:30発表の米雇用統計。
+    </p>
+    <p style="font-size:0.85rem;color:var(--sub);margin-top:8px;">
+      <strong>本日のリスク要因:</strong> ①米国のAIバブル懸念の拡大・半導体株の一段安、②本日22:30(日本時間)発表の米雇用統計の結果次第で夜にかけて相場が再び大きく動く可能性、③VIX高止まりによる換金売り・ポジション調整の広がり、④米長期金利・ドル円の急変動。
+    </p>
   </div>
 </section>
 
@@ -130,56 +148,56 @@
   <div class="sec-title"><span class="num">2</span>主要指標タイル</div>
   <div class="tiles">
     <div class="tile">
-      <div class="label">日経225先物(夜間/CME・大阪)</div>
-      <div class="na">取得不可</div>
-      <div class="chg flat">夜間終値を確認できず</div>
+      <div class="label">日経225先物(夜間/大阪・CME)</div>
+      <div class="value">58,000円台</div>
+      <div class="chg down">▽ -2,000円超(目安) ※最終終値未確認</div>
     </div>
     <div class="tile">
-      <div class="label">S&amp;P500(11/4終値)</div>
-      <div class="value">7,688.62</div>
-      <div class="chg up">▲ +1.58%</div>
+      <div class="label">S&amp;P500(11/5終値)</div>
+      <div class="value">7,353.73</div>
+      <div class="chg down">▽ -4.36%</div>
     </div>
     <div class="tile">
-      <div class="label">NYダウ(11/4終値)</div>
-      <div class="value">53,356.12</div>
-      <div class="chg up">▲ +3.03%</div>
+      <div class="label">NYダウ(11/5終値)</div>
+      <div class="value">51,523.06</div>
+      <div class="chg down">▽ -3.44%</div>
     </div>
     <div class="tile">
-      <div class="label">ナスダック総合(11/4終値)</div>
-      <div class="value">25,736.51</div>
-      <div class="chg up">▲ +1.44%</div>
+      <div class="label">ナスダック総合(11/5終値)</div>
+      <div class="value">24,315.00</div>
+      <div class="chg down">▽ -5.52%</div>
     </div>
     <div class="tile">
       <div class="label">ドル円</div>
-      <div class="na">取得不可</div>
-      <div class="chg flat">直近は158円前後で推移(10月時点)</div>
+      <div class="value">157.5〜158.5円</div>
+      <div class="chg flat">日中レンジ ※終値未確認</div>
     </div>
     <div class="tile">
       <div class="label">米10年債利回り</div>
-      <div class="value">4.89%前後</div>
-      <div class="chg down">▽ 低下(日中4.9%台から)</div>
+      <div class="value">4.84〜4.91%</div>
+      <div class="chg flat">日中レンジ ※終値未確認</div>
     </div>
     <div class="tile">
       <div class="label">日本10年債利回り</div>
       <div class="na">取得不可</div>
-      <div class="chg flat">本日10年債入札</div>
+      <div class="chg flat">当日値を確認できず</div>
     </div>
     <div class="tile">
       <div class="label">WTI原油</div>
-      <div class="na">取得不可</div>
-      <div class="chg flat">中東情勢緩和期待で軟化との報道</div>
+      <div class="value">89ドル台</div>
+      <div class="chg flat">11/4終値88.12(-8.29%)から反発 ※11/5終値未確認</div>
     </div>
     <div class="tile">
       <div class="label">金(ゴールド)</div>
-      <div class="na">取得不可</div>
-      <div class="chg flat">終値確認できず</div>
+      <div class="value">4,135ドル前後</div>
+      <div class="chg flat">時間外水準 ※終値未確認</div>
     </div>
   </div>
   <div class="chart-box">
     <canvas id="idxChart" height="180"></canvas>
   </div>
   <p style="font-size:0.75rem;color:var(--sub);margin-top:8px;">
-    ※「取得不可」の項目は、公開情報での当日終値を確認できなかったもの。推測値は記載していません。
+    ※「取得不可」および「終値未確認」の項目は、公開情報での当日確定値を確認できなかったもの。推測値は記載していません。SOX(半導体株指数)は直近複数日続落しており(11/2は-3.37%)、11/5の下落率自体は確認できていません。
   </p>
 </section>
 
@@ -189,15 +207,15 @@
     <table>
       <thead><tr><th>国・年限</th><th>水準</th><th>備考</th></tr></thead>
       <tbody>
-        <tr><td>米2年債</td><td class="num tag-na">取得不可</td><td>選挙後の金利低下の中で確認できず</td></tr>
-        <tr><td>米10年債</td><td class="num">4.89%前後</td><td>11/4日中4.9%台から低下方向</td></tr>
-        <tr><td>米30年債</td><td class="num tag-na">取得不可</td><td>長期金利は全体に低下との報道のみ</td></tr>
-        <tr><td>日本10年債(JGB)</td><td class="num tag-na">取得不可</td><td>本日(11/5)10年債入札実施</td></tr>
-        <tr><td>日本20年債(JGB)</td><td class="num tag-na">取得不可</td><td>次回入札は11/18予定</td></tr>
+        <tr><td>米2年債</td><td class="num">4.61%前後</td><td>11/5 NY早朝時点の参考値、終値未確認</td></tr>
+        <tr><td>米10年債</td><td class="num">4.84〜4.91%</td><td>選挙後の低下と米国債オープン直後の上昇が混在、終値未確認</td></tr>
+        <tr><td>米30年債</td><td class="num tag-na">取得不可</td><td>当日値を確認できず</td></tr>
+        <tr><td>日本10年債(JGB)</td><td class="num tag-na">取得不可</td><td>当日値を確認できず</td></tr>
+        <tr><td>日本20年債(JGB)</td><td class="num tag-na">取得不可</td><td>当日値を確認できず。次回入札は11/18予定</td></tr>
       </tbody>
     </table>
     <p style="font-size:0.82rem;color:var(--sub);margin-top:10px;">
-      日銀は次回金融政策決定会合を12/17〜18に開催予定。植田総裁は11/6にIMF関連会合で講演予定で、金融政策スタンスに関する発言が注目される。
+      日銀は前回10/29〜30会合で短期金利を1.25%程度に据え置き。次回会合は民間カレンダーでは12/17〜18と案内されているが、公式での確認はできておらず参考情報です。
     </p>
   </div>
 </section>
@@ -206,37 +224,40 @@
   <div class="sec-title"><span class="num">4</span>重要ニュース要約</div>
   <div class="card">
     <div class="news-item">
-      <p>① 米中間選挙(11/3投票)の結果判明を受け、政治的不確実性の後退を好感し米主要株価指数が大幅高。NYダウは2025年4月以来の大幅上昇となった。</p>
-      <a href="https://forbes.com/sites/fionariley/2026/11/04/dow-jumps-over-1500-points-after-democrats-take-congress-in-midterms" target="_blank">Forbes</a>
+      <p>① 米国株は11/5(米東部時間)に主要3指数が大幅安。前日の中間選挙後ラリーを完全に帳消しにし、AI投資の採算性懸念から半導体・ハイテク株中心に売りが広がった(ダウ-3.44%、S&amp;P500-4.36%、ナスダック-5.52%)。</p>
+      <a href="https://fx.minkabu.jp/news/383706" target="_blank">みんかぶ FX/為替</a>
+      <a href="https://fx.minkabu.jp/news/383696" target="_blank">みんかぶ(3時台速報)</a>
     </div>
     <div class="news-item">
-      <p>② 一方で半導体株(SOX指数)は全体相場の上昇に反して約4%安。AI・データセンター関連株には利益確定売りが続いたとの報道。</p>
-      <a href="https://investrade.com/market-review-november-04-2026/" target="_blank">Investrade Market Review</a>
+      <p>② VIX(恐怖指数)は取引時間中に一時+48%急騰、2025年4月以来の上昇率。終値近辺でも8カ月ぶり高値圏の28前後まで上昇し、ハイテク株の急速な売りの中で変動性が拡大したと報じられている。</p>
+      <a href="https://jp.bloomingbit.io/feed/news/123765" target="_blank">Bloomingbit</a>
+      <a href="https://kucoin.com/ja/news/flash/vix-surges-11-5-points-largest-intraday-jump-in-18-months" target="_blank">KuCoin News</a>
     </div>
     <div class="news-item">
-      <p>③ VIX(恐怖指数)は前日の20台から17台まで急低下。選挙結果判明でリスク回避姿勢が後退したことを示唆。</p>
-      <a href="https://finance.yahoo.com/quote/%5EVIX/" target="_blank">Yahoo Finance</a>
+      <p>③ 前日11/4は米中間選挙(11/3投票)で民主党が上下両院で過半数を奪還したことを受け、政治的不確実性の後退を好感し米株が大幅高(ダウ+1,569.40高、ナスダック+364.51高、S&amp;P500+119.70高)となっていた。</p>
+      <a href="https://www.zaikei.co.jp/article/20261105/876191.html" target="_blank">財経新聞</a>
     </div>
     <div class="news-item">
-      <p>④ AMDは第3四半期決算でAI需要を背景に記録的な増収を発表したものの、収益性やガイダンスへの懸念、SpaceXの購買停止報道などから株価は下落で反応。</p>
-      <a href="https://stocktwits.com/news-articles/markets/equity/amd-q3-revenue-beats-earnings-in-line/cJ2DAZsRJH" target="_blank">Stocktwits</a>
+      <p>④ 東京市場(11/5)は日経平均が4日続落、前日比1,110円73銭安の61,077円90銭で終了、5カ月半ぶりの安値水準。半導体関連中心に売られた一方、TOPIXは4営業日ぶりに反発し+45.01の3,940.39で終えた。東証プライムの売買代金は概算で約11兆7,850億円。</p>
+      <a href="https://news.infoseek.co.jp/article/yomiuri_20261105_gyt1t00330/" target="_blank">読売新聞(Infoseekニュース)</a>
+      <a href="https://kabutan.jp/news/marketnews/?b=n202611051347" target="_blank">株探</a>
     </div>
     <div class="news-item">
-      <p>⑤ 東京市場は11/4、米選挙結果判明前の警戒感からAI・半導体関連中心に売りが優勢となり、日経平均は3日続落で893円安の62,188円63銭、TOPIXも続落。</p>
-      <a href="https://kabutan.jp/news/marketnews/?b=n202611041275" target="_blank">株探</a>
-      <a href="https://news.yahoo.co.jp/articles/dfd5bcf96b09878979a86c2bb51d73639141ab7d" target="_blank">Yahoo!ニュース(時事通信)</a>
+      <p>⑤ 大阪取引所の日経225先物(夜間取引)は米株急落を受けて下落に転じ、日付が変わった2時台には前日比2,120円安の58,800円まで急落した。</p>
+      <a href="https://kabutan.jp/news/marketnews/?b=n202611060071" target="_blank">株探</a>
     </div>
     <div class="news-item">
-      <p>⑥ 米FRBは11月のFOMC開催はなく、次回決定会合は12/8〜9。10/27〜28分の議事要旨は11/18に公開予定。</p>
-      <a href="https://www.federalreserve.gov/newsevents/2026-november.htm" target="_blank">Federal Reserve</a>
+      <p>⑥ WTI原油は11/4、米中間選挙で共和党が上下両院の多数派を失ったことや中東情勢の供給リスク後退の見方から前日比8.29%安の88.12ドルまで急落。11/5のNY早朝には89ドル台へ反発したと報じられている。</p>
+      <a href="https://jp.investing.com/news/forex-news/article-1743126" target="_blank">Investing.com(Fisco)</a>
+      <a href="https://fx.minkabu.jp/news/383686" target="_blank">みんかぶ</a>
     </div>
     <div class="news-item">
-      <p>⑦ ドル円は10月時点で158円前後の狭いレンジで推移。7月末には日米当局による28年ぶりとされる協調円買い介入があったと報じられている。</p>
-      <a href="https://www.gaitame.com/media/entry/2026/10/01/092539" target="_blank">外為どっとこむ</a>
+      <p>⑦ 米雇用統計(10月分)は本日11/6 22:30(日本時間、米東部時間8:30)に発表予定。民間予想では非農業部門雇用者数+5.5万人、失業率4.2%(前月9月分実績は+2.9万人、失業率4.2%)。</p>
+      <a href="https://blog.sonybank.jp/ces.html" target="_blank">ソニー銀行</a>
     </div>
     <div class="news-item">
-      <p>⑧ 財務省は本日(11/5)10年利付国債の入札を実施。20年債入札は11/18に予定。</p>
-      <a href="https://www.mof.go.jp/jgbs/auction/calendar/2611.htm" target="_blank">財務省</a>
+      <p>⑧ 金(ゴールド)はこうした市場の混乱の中でも底堅く推移。東京金は大幅高となり、NY金も時間外取引で4,135ドル付近と堅調だったと報じられている。</p>
+      <a href="https://fx.minkabu.jp/news/383567" target="_blank">みんかぶ</a>
     </div>
   </div>
 </section>
@@ -251,26 +272,24 @@
           <td>AMD</td>
           <td>米(NASDAQ)</td>
           <td class="pos">売上高は上振れ(AI需要で記録的増収)</td>
-          <td>収益性・ガイダンスへの懸念等から株価は下落で反応(関連報道で約8%安との観測)</td>
+          <td>収益性・ガイダンスへの懸念等から株価は反応薄〜下落(11/4決算発表、約8%安との観測)</td>
         </tr>
         <tr>
           <td>トヨタ自動車(7203)</td>
           <td>日(東証プライム)</td>
-          <td class="tag-na">取得不可(本日発表予定)</td>
-          <td>決算発表は本日11/5予定、本資料作成時点で未発表。参考:前年同期(2025年11月5日発表分)は増収減益、営業利益は米関税影響で前年比18.6%減</td>
+          <td class="tag-na">取得不可</td>
+          <td>11/5発表予定とされていたが、本資料作成時点で確定した予想比・株価反応データを確認できず「取得不可」</td>
         </tr>
         <tr>
           <td>ソニーグループ(6758)</td>
           <td>日(東証プライム)</td>
-          <td class="tag-na">取得不可(本日発表予定)</td>
-          <td>決算説明会は本日11/5 16:30開催予定、本資料作成時点で未発表。参考:前四半期(2026年度第1四半期)は営業利益が過去最高(前年比+40%)</td>
+          <td class="tag-na">取得不可</td>
+          <td>11/5決算説明会開催予定とされていたが、本資料作成時点で確定したデータを確認できず「取得不可」</td>
         </tr>
       </tbody>
     </table>
     <p style="font-size:0.78rem;color:var(--sub);margin-top:10px;">
-      出典: <a href="https://stocktwits.com/news-articles/markets/equity/amd-q3-revenue-beats-earnings-in-line/cJ2DAZsRJH" style="color:#7b8aa0;" target="_blank">Stocktwits(AMD)</a>、
-      <a href="https://global.toyota/jp/newsroom/corporate/43451703.html" style="color:#7b8aa0;" target="_blank">トヨタ自動車IR(前年参考)</a>、
-      <a href="https://gamebiz.jp/news/415778" style="color:#7b8aa0;" target="_blank">gamebiz.jp(ソニー前期参考)</a>
+      決算発表の集中期間(10/27〜11/16)にあり、上記以外の主要銘柄についても本資料作成時点で確定した予想比データを十分に確認できていません。業務利用前に各社IR情報でご確認ください。
     </p>
   </div>
 </section>
@@ -278,12 +297,12 @@
 <section>
   <div class="sec-title"><span class="num">6</span>米雇用統計</div>
   <div class="card">
-    <div class="tmf-row"><span class="k">直近結果</span><span class="v tag-na" style="color:var(--sub);font-size:0.95rem;">取得不可</span></div>
-    <div class="tmf-row"><span class="k">次回発表日</span><span class="v tag-na" style="color:var(--sub);font-size:0.95rem;">取得不可</span></div>
+    <div class="tmf-row"><span class="k">直近結果(2026年9月分、参考)</span><span class="v" style="font-size:0.95rem;">NFP +2.9万人・失業率4.2%</span></div>
+    <div class="tmf-row"><span class="k">次回発表日</span><span class="v" style="font-size:0.95rem;">2026年11月6日(金)22:30 JST(本日)</span></div>
+    <div class="tmf-row"><span class="k">市場予想(10月分)</span><span class="v" style="font-size:0.95rem;">NFP +5.5万人・失業率4.2%</span></div>
+    <div class="tmf-row"><span class="k">平均時給</span><span class="v tag-na" style="color:var(--sub);font-size:0.95rem;">取得不可</span></div>
     <p style="font-size:0.85rem;color:var(--sub);margin-top:6px;">
-      検索した複数の情報源で非農業部門雇用者数・失業率の最新確定値および次回発表日に食い違いがあり、信頼できる一次情報(BLS公式発表)での確認ができなかったため、推測せずに「取得不可」としています。
-      背景として、2025年秋の米政府機関閉鎖により雇用統計の発表スケジュールが大きく遅延した経緯があり、また2026年にも短期間の閉鎖で1月分の発表が延期された例があるなど、スケジュールが不安定になりやすい点に留意してください。
-      米政府の暫定予算は12/11に期限を迎えるとの報道があり、再度のスケジュール変動リスクがあります。
+      上記は民間情報源(ソニー銀行)に基づく参考値であり、米労働省(BLS)の一次発表での確認はできていません。本日22:30発表予定のため、発表後は改めて一次情報でのご確認をお願いします。背景として、2025年秋の米政府機関閉鎖の影響で雇用統計の発表スケジュールが大きく遅延した経緯があり、再度のスケジュール変動リスクにも留意してください。
     </p>
     <a href="https://www.bls.gov/schedule/news_release/empsit.htm" style="color:#8fc4ff;font-size:0.78rem;" target="_blank">BLS公式発表スケジュール(要確認)</a>
   </div>
@@ -295,19 +314,17 @@
     <table>
       <thead><tr><th>日付</th><th>重要度</th><th>イベント</th><th>市場予想等</th></tr></thead>
       <tbody>
-        <tr><td class="num">11/5(木・本日)</td><td class="stars">★★</td><td>日本10年利付国債入札</td><td>-</td></tr>
-        <tr><td class="num">11/5(木・本日)</td><td class="stars">★★</td><td>トヨタ・ソニー等 決算発表</td><td>市場予想は確認できず「取得不可」</td></tr>
-        <tr><td class="num">11/6(金)</td><td class="stars">★</td><td>日銀・植田総裁 IMF関連会合で講演</td><td>金融政策スタンスに関する発言に注目</td></tr>
-        <tr><td class="num">11/10(火)</td><td class="stars">★★★</td><td>米CPI(10月分、米東部時間8:30=日本時間22:30)</td><td>前月(9月分)は総合+3.7%・コア+2.6%(前年比)。10月分の予想値は確認できず「取得不可」</td></tr>
-        <tr><td class="num">11/13(金)</td><td class="stars">★</td><td>日経225オプション等 SQ(特別清算指数)</td><td>-</td></tr>
+        <tr><td class="num">11/6(金・本日)</td><td class="stars">★★★</td><td>米雇用統計(10月分) 22:30 JST</td><td>NFP予想+5.5万人・失業率予想4.2%(民間集計、一次情報未確認)</td></tr>
+        <tr><td class="num">11/10(火)</td><td class="stars">★★★</td><td>米CPI(10月分、米東部時間8:30=日本時間22:30)</td><td>日程は民間集計ページの情報。予想値・確定日とも一次情報(BLS)未確認「取得不可」</td></tr>
+        <tr><td class="num">11/13(金)</td><td class="stars">★★</td><td>日経225オプション等 SQ(特別清算指数)</td><td>-</td></tr>
         <tr><td class="num">11/18(水)</td><td class="stars">★★</td><td>日本20年利付国債入札</td><td>-</td></tr>
         <tr><td class="num">11/18(水)</td><td class="stars">★★</td><td>FOMC議事要旨公開(10/27〜28分)</td><td>-</td></tr>
-        <tr><td class="num">11月中旬〜下旬</td><td class="stars">★★</td><td>米雇用統計(発表日未確定)</td><td>政府機関の予算協議の影響でスケジュールが変動しうる。確定日は「取得不可」</td></tr>
+        <tr><td class="num">11月後半(日付未確定)</td><td class="stars">★★</td><td>日本CPI(10月分)</td><td>例年11月後半公表だが、2026年の確定発表日は確認できず「取得不可」</td></tr>
         <tr><td class="num">11/23(月)</td><td class="stars">★</td><td>勤労感謝の日(日本・東証休場)</td><td>-</td></tr>
       </tbody>
     </table>
     <p style="font-size:0.75rem;color:var(--sub);margin-top:10px;">
-      重要度: ★=参考 ★★=要注目 ★★★=要警戒。市場予想が確認できない項目は「取得不可」としています。
+      重要度: ★=参考 ★★=要注目 ★★★=要警戒。市場予想・確定日が確認できない項目は「取得不可」としています。なお次回FOMCは12/8〜9、日銀次回会合は12/17〜18予定(いずれも2週間超先のため上表には含めていません)。
     </p>
   </div>
 </section>
@@ -325,7 +342,7 @@
       <span class="v tag-na" style="color:var(--sub);font-size:0.95rem;">取得不可</span>
     </div>
     <p class="tmf-note">
-      <strong>米30年債利回りとの関係性:</strong> TMFは米国の残存20年超の国債に3倍のレバレッジをかけて連動するETFのため、長期金利(主に30年債利回り)が<strong>上昇するとTMFは下落</strong>しやすく、<strong>低下するとTMFは上昇</strong>しやすい、逆相関に近い関係があります。本資料の金利セクションのとおり、2026/11/4は米長期金利が全体に低下方向だったと報じられていますが、この日のTMFの実際の終値・前日比は確認できなかったため、推測せずに「取得不可」としています。
+      <strong>米30年債利回りとの関係性:</strong> TMFは米国の残存20年超の国債に3倍のレバレッジをかけて連動するETFのため、長期金利(主に30年債利回り)が<strong>上昇するとTMFは下落</strong>しやすく、<strong>低下するとTMFは上昇</strong>しやすい、逆相関に近い関係があります。本日(11/5)は米10年債利回りが日中4.84〜4.91%の範囲で上下したと報じられており、株式市場の急落を受けた質への逃避(国債買い)の動きがあった可能性もありますが、30年債利回りの当日終値およびTMFの当日終値は確認できなかったため、推測せずに「取得不可」としています。
     </p>
     <p class="tmf-note">
       <strong>直近1ヶ月の値動き(概況):</strong> 確認できた範囲では、8月末に31.33ドル程度だった水準から、10月末にかけて29ドル台まで緩やかに下落する展開でした。この間、米長期金利が上昇(金利高)局面を含んでいたことと整合的な動きとみられますが、日々の正確な値動きは確認できていません。
@@ -340,29 +357,28 @@
 </section>
 
 <section class="disclaimer">
-  <p><strong>注意書き:</strong> 本資料は公開情報の整理であり投資助言ではありません。数値は速報ベースのため、業務利用前に各種端末等で確認してください。レバレッジETFは長期投資には適さない場合があります。「取得不可」と記載した項目は、作成時点の公開情報検索で信頼できる当日値を確認できなかったものであり、推測による数値は記載していません。</p>
+  <p><strong>注意書き:</strong> 本資料は公開情報の整理であり投資助言ではありません。数値は速報ベースのため、業務利用前に各種端末等で確認してください。レバレッジETFは長期投資には適さない場合があります。「取得不可」および「終値未確認」と記載した項目は、作成時点の公開情報検索で信頼できる当日確定値を確認できなかったものであり、推測による数値は記載していません。</p>
   <p style="margin-top:10px;"><strong>出典一覧:</strong></p>
   <ul class="sources">
-    <li><a href="https://forbes.com/sites/fionariley/2026/11/04/dow-jumps-over-1500-points-after-democrats-take-congress-in-midterms" target="_blank">Forbes - Dow Jumps Over 1,500 Points After Democrats Take Congress in Midterms (2026/11/4)</a></li>
-    <li><a href="https://www.cnbc.com/2026/11/03/stock-market-today-live-updates.html" target="_blank">CNBC - Stock Market Today Live Updates</a></li>
-    <li><a href="https://investrade.com/market-review-november-04-2026/" target="_blank">Investrade - Market Review: November 04, 2026</a></li>
-    <li><a href="https://finance.yahoo.com/quote/%5EVIX/" target="_blank">Yahoo Finance - CBOE Volatility Index (^VIX)</a></li>
-    <li><a href="https://www.schwab.com/learn/story/stock-market-update-open" target="_blank">Charles Schwab - Stock Market Update</a></li>
-    <li><a href="https://kabutan.jp/news/marketnews/?b=n202611041275" target="_blank">株探 - 日経平均大引け(2026/11/4)</a></li>
-    <li><a href="https://news.yahoo.co.jp/articles/dfd5bcf96b09878979a86c2bb51d73639141ab7d" target="_blank">Yahoo!ニュース(時事通信) - 東京株式(2026/11/4)</a></li>
-    <li><a href="https://stocktwits.com/news-articles/markets/equity/amd-q3-revenue-beats-earnings-in-line/cJ2DAZsRJH" target="_blank">Stocktwits - AMD Q3 Revenue Beats, Earnings In Line</a></li>
-    <li><a href="https://global.toyota/jp/newsroom/corporate/43451703.html" target="_blank">トヨタ自動車 - 決算発表(前年参考、2025/11/5)</a></li>
-    <li><a href="https://gamebiz.jp/news/415778" target="_blank">gamebiz.jp - ソニーグループ決算(前期参考)</a></li>
-    <li><a href="https://www.federalreserve.gov/newsevents/2026-november.htm" target="_blank">Federal Reserve - November 2026 Calendar</a></li>
-    <li><a href="https://www.mof.go.jp/jgbs/auction/calendar/2611.htm" target="_blank">財務省 - 国債入札カレンダー(令和8年11月)</a></li>
-    <li><a href="https://www.gaitame.com/media/entry/2026/10/01/092539" target="_blank">外為どっとこむ - ドル円市況</a></li>
-    <li><a href="https://www.oanda.jp/lab-education/?p=131964" target="_blank">OANDA Japan - 植田日銀総裁IMF講演に関する記事</a></li>
-    <li><a href="https://therighttrader.com/ja/economic-calendar/cpi" target="_blank">The Right Trader - 米国CPI発表日カレンダー</a></li>
-    <li><a href="https://stockanalysis.com/etf/tmf/" target="_blank">StockAnalysis.com - TMF ETF</a></li>
+    <li><a href="https://fx.minkabu.jp/news/383706" target="_blank">みんかぶ FX/為替 - ダウ平均は急落、ナスダックも5%超急落(米国株概況)</a></li>
+    <li><a href="https://fx.minkabu.jp/news/383696" target="_blank">みんかぶ FX/為替 - NY各市場 3時台</a></li>
+    <li><a href="https://jp.bloomingbit.io/feed/news/123765" target="_blank">Bloomingbit - ウォール街の恐怖指数、取引時間中に48%急騰</a></li>
+    <li><a href="https://kucoin.com/ja/news/flash/vix-surges-11-5-points-largest-intraday-jump-in-18-months" target="_blank">KuCoin News - VIXが11.5ポイント上昇</a></li>
+    <li><a href="https://www.zaikei.co.jp/article/20261105/876191.html" target="_blank">財経新聞 - NY株式:NYダウは1569.40ドル高</a></li>
+    <li><a href="https://news.infoseek.co.jp/article/yomiuri_20261105_gyt1t00330/" target="_blank">読売新聞(Infoseekニュース) - 日経平均終値4営業日連続下落</a></li>
+    <li><a href="https://kabutan.jp/news/marketnews/?b=n202611051347" target="_blank">株探 - 日経平均大引け(2026/11/5)</a></li>
+    <li><a href="https://kabutan.jp/news/marketnews/?b=n202611060071" target="_blank">株探 - 日経225先物:6日2時=2120円安</a></li>
+    <li><a href="https://jp.investing.com/news/forex-news/article-1743126" target="_blank">Investing.com(Fisco) - NY原油:大幅続落で88.79ドル</a></li>
+    <li><a href="https://fx.minkabu.jp/news/383686" target="_blank">みんかぶ FX/為替 - 原油は89ドル台に反発</a></li>
+    <li><a href="https://fx.minkabu.jp/news/383567" target="_blank">みんかぶ FX/為替 - 米10年債利回り低下、原油急落</a></li>
+    <li><a href="https://blog.sonybank.jp/ces.html" target="_blank">ソニー銀行 - 米雇用統計・今月の注目ポイント</a></li>
+    <li><a href="https://www.federalreserve.gov/newsevents/2026-december.htm" target="_blank">Federal Reserve - December 2026 Calendar(FOMC 12/8-9)</a></li>
+    <li><a href="https://stockanalysis.com/stocks/tmf/" target="_blank">StockAnalysis.com - TMF ETF</a></li>
+    <li><a href="https://www.bls.gov/schedule/news_release/empsit.htm" target="_blank">BLS公式発表スケジュール</a></li>
   </ul>
 </section>
 
-<footer>市場ブリーフィング自動生成 ・ 2026/11/05 07:10 JST作成</footer>
+<footer>市場ブリーフィング自動生成 ・ 2026/11/06 07:15 JST作成</footer>
 </div>
 
 <script>
@@ -375,15 +391,15 @@ try{
         labels: ['NYダウ','S&P500','ナスダック'],
         datasets: [{
           label: '前日比(%)',
-          data: [3.03, 1.58, 1.44],
-          backgroundColor: ['#ff5c5c','#ff5c5c','#ff5c5c'],
+          data: [-3.44, -4.36, -5.52],
+          backgroundColor: ['#4ea8ff','#4ea8ff','#4ea8ff'],
           borderRadius: 6,
           maxBarThickness: 46
         }]
       },
       options: {
         responsive: true,
-        plugins: { legend: { display:false }, title: { display:true, text:'米主要3指数 前日比(2026/11/4終値)', color:'#eef1f6', font:{size:13} } },
+        plugins: { legend: { display:false }, title: { display:true, text:'米主要3指数 前日比(2026/11/5終値)', color:'#eef1f6', font:{size:13} } },
         scales: {
           x: { ticks:{ color:'#9aa3b2' }, grid:{ color:'#2c313c' } },
           y: { ticks:{ color:'#9aa3b2', callback:(v)=>v+'%' }, grid:{ color:'#2c313c' } }
